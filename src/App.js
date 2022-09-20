@@ -10,9 +10,13 @@ export default function App() {
   return (
 
     <Routes>
-      <Route path = { HOME } component = { Home } />
-      <Route component = { NotFound } />
+      <Route path = { HOME } element = { <Home /> } />
+      <Route path="*" element = { <NotFound /> } />
     </Routes>
+
+    // <Routes>
+    //   <Route path="/" element={<App />} />
+    // </Routes>
 
   )
 }
