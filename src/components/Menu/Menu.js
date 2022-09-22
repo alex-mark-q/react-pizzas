@@ -1,15 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Menu.module.scss';
 
-const Menu = () => (
-  <div className={styles.Menu}>
-    Menu Component
-  </div>
-);
+export default function Menu({ children }) {
+  return (
 
-Menu.propTypes = {};
+    <div>menu</div>
 
-Menu.defaultProps = {};
-
-export default Menu;
+  )
+}
