@@ -12,11 +12,15 @@ import rootReducer from './reducers'
 import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware)))
+const store = createStore(
+  rootReducer, 
+  compose(applyMiddleware(sagaMiddleware)),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 sagaMiddleware.run(rootSaga)
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
+  <Provider store = { store }>
     <BrowserRouter>
       <App />
     </BrowserRouter>
