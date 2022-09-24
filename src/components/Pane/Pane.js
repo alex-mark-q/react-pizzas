@@ -7,9 +7,7 @@ export default function Pane ({  children }) {
 
     <Main>
       <Container>
-        <CPane>
-          { children }
-        </CPane>
+        { children }
       </Container>
     </Main>
 
@@ -22,6 +20,10 @@ Pane.Contents = function PaneContents({ children, ...restProps }) {
 Pane.SideBarWrapper = function PaneSideBar({ children, ...restProps }) {
   return <SideBarWrapper {...restProps}>{ children }</SideBarWrapper>;
 }
+Pane.CPane = function PaneCPane({ children, ...restProps }) {
+  return <CPane {...restProps}>{ children }</CPane>;
+}
+
 
 Pane.propTypes = {};
 

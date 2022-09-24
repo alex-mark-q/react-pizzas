@@ -1,0 +1,110 @@
+{
+  "pizzas": [
+    {
+      "id": 0,
+      "imageUrl": "",
+      "size": "12''30 cm"
+    },
+    {
+      "id": 1,
+      "imageUrl": "",
+      "size": "14''35 cm"
+    },
+    {
+      "id": 2,
+      "imageUrl": "",
+      "size": "16''40 cm"
+    }
+  ],
+  "dough": [
+    {
+      "id": 3,
+      "imageUrl": "",
+      "cal": "80"
+    },
+    {
+      "id": 4,
+      "imageUrl": "",
+      "cal": "100"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 5,
+      "imageUrl": "",
+      "name": "olives",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 6,
+      "imageUrl": "",
+      "name": "tomato",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 7,
+      "imageUrl": "",
+      "name": "chili",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 8,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 9,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 10,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 11,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 12,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 13,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 14,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    },
+    {
+      "id": 15,
+      "imageUrl": "",
+      "name": "",
+      "cal": "100",
+      "price": "0.3"
+    }
+  ]
+}

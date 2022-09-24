@@ -1,15 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './NavBar.module.scss';
+import React from 'react'
+import { Container, Wrapper } from './styles/NavBar'
 
-const NavBar = () => (
-  <div className={styles.NavBar}>
-    NavBar Component
-  </div>
-);
+export default function NavBar ({  children,  ...restProps }) {
+  return <Container { ...restProps }> {children} </Container>;
+};
+NavBar.Wrapper = function NavBarWrapper({ children, ...restProps }) {
+  return  <Wrapper {...restProps}></Wrapper>
+};
+
 
 NavBar.propTypes = {};
 
 NavBar.defaultProps = {};
-
-export default NavBar;

@@ -4,3 +4,8 @@ export { default as SideBar } from './SideBar/SideBar';
 export { default as Cart } from './Cart/Cart';
 export { default as Basket } from './Basket/Basket';
 export { default as App } from './App/App';
+export { default as Header } from './Header/Header';
+export { default as Panel } from './Panel/Panel';
+export { default as Logo } from './Logo/Logo';
+export { default as NavBar } from './NavBar/NavBar';
+export { default as Ingredients } from './Ingredients/Ingredients';
