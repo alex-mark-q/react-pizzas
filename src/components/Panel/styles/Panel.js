@@ -68,6 +68,8 @@ export const Button = styled.button`
 	font-size: 36px;
 	position: relative;
 	cursor: pointer;
+	height: 100%;
+	padding: 0;
 	&:before {
     transition: all .3s ease;
 		content: '';

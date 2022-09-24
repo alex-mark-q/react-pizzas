@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-export const getPizzaData = (data) => {
-  axios.get(`
-    
-  `).then((response) => response.json())
-  // return fetch(
-  //   `https://jsonplaceholder.typicode.com/users/${data}/posts`
-  // ).then((response) => response.json())
+export const getPizzaData = (pathname) => {
+  // axios.get(`
+  //   /${pathname}
+  // `).then((response) => response.json())
+  return fetch(
+    `http://localhost:3001/${pathname}`
+    // `/pizzas`
+  ).then((response) => response.json())
 }
