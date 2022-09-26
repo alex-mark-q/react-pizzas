@@ -2,11 +2,10 @@ import React from 'react'
 import { Pane, App, Header, Panel, Logo, NavBar } from '../components'
 import { Pizza } from './pizza'
 import { addPizzaToCart } from '../store/actions' 
+import { HeaderContainer } from './header'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { USER_POSTS_FETCH_REQUESTED } from '../store/actions'
-
-
 
 export function PaneContainer({ children }) {
 
@@ -25,45 +24,7 @@ export function PaneContainer({ children }) {
                 <App.Layout>
                   <App.Services>
                     <App.Present>
-                      <Logo>
-                        <Logo.Wrapper>
-                        </Logo.Wrapper>
-                      </Logo>
-                      <NavBar>
-                      <NavBar.Wrapper>
-                      </NavBar.Wrapper>
-                      </NavBar>
-                      <Header>
-                        <Header.Content>
-                          <Header.Menu>
-                            <Header.Item>
-                              <Header.ItemLink>
-                                Pizzas
-                              </Header.ItemLink>
-                            </Header.Item>
-                            <Header.Item>
-                              <Header.ItemLink>
-                                Delivery
-                              </Header.ItemLink>
-                            </Header.Item>
-                            <Header.Item>
-                              <Header.ItemLink>
-                                Contacts
-                              </Header.ItemLink>
-                            </Header.Item>
-                            <Header.Item>
-                              <Header.ItemLink>
-                                Login
-                              </Header.ItemLink>
-                            </Header.Item>
-                            <Header.Item>
-                              <Header.ItemLink>
-                                Register
-                              </Header.ItemLink>
-                            </Header.Item>
-                          </Header.Menu>
-                        </Header.Content>
-                      </Header>
+                      <HeaderContainer />
                     </App.Present>
                   </App.Services>
                   <App.Boarding>

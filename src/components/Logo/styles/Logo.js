@@ -8,7 +8,7 @@ export const Container = styled.div`
 	height: 145px;
 `
 
-export const Wrapper = styled.div`
+export const Link = styled.a`
 	display: block;
 	width: 48px;
 	height: 48px;
