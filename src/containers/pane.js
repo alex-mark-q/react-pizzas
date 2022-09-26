@@ -1,18 +1,10 @@
 import React from 'react'
 import { Pane, App, Header, Panel, Logo, NavBar } from '../components'
 import { Pizza } from './pizza'
-import { addPizzaToCart } from '../store/actions' 
 import { HeaderContainer } from './header'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { USER_POSTS_FETCH_REQUESTED } from '../store/actions'
 
 export function PaneContainer({ children }) {
-
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch({ type: USER_POSTS_FETCH_REQUESTED, payload: { pathname: 'pizzas' } })
-  }
   
   return (
     <>
@@ -62,7 +54,7 @@ export function PaneContainer({ children }) {
                             </Panel.StepElem>
                           </Panel.Step>
                           <Panel.Order>
-                            <Panel.Button onClick={() => handleClick()}>
+                            <Panel.Button>
                               <span>make your own pizza</span>
                             </Panel.Button>
                           </Panel.Order>
@@ -76,6 +68,7 @@ export function PaneContainer({ children }) {
           </Pane.Contents>
         </Pane.CPane>
         <Pizza>
+          
         </Pizza>
       </Pane>
     </>

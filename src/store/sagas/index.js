@@ -1,32 +1,14 @@
-import { call, put, takeEvery, all, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery, all, takeLatest, fork } from 'redux-saga/effects'
 
-import {
-  USER_POSTS_FETCH_REQUESTED,
-  USER_POSTS_FETCH_SUCCEEDED,
-  USER_POSTS_FETCH_FAILED,
-} from '../actions'
-import { getPizzaData } from '../../api'
-console.log(getPizzaData());
+import * as actions from '../actions'
+import * as api from '../../api'
 
-function* fetchPizzaData(action) {
-	try {
-		const callResult = call(getPizzaData, action.payload.pathname)
-		const PizzaaData = yield callResult
-    const putResult = put({
-    	type: USER_POSTS_FETCH_SUCCEEDED,
-      payload: {
-        data: PizzaaData,
-      },
-    })
-    yield putResult
-	} catch(e) {
-		yield put({
-      type: USER_POSTS_FETCH_FAILED,
-      payload: { message: e.message },
-    })
-	}
+function* getPizzaProduct() {
+  const pizzas = yield call(api.getAllPizzaData)
+  console.log('pizzas ', pizzas);
+  yield put(actions.receiveProducts(pizzas))
 }
 
 export function* rootSaga() {
-  yield takeLatest(USER_POSTS_FETCH_REQUESTED, fetchPizzaData)
+  yield all([fork(getPizzaProduct)])
 }

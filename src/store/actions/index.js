@@ -3,8 +3,9 @@ export const USER_POSTS_FETCH_SUCCEEDED = 'USER_POSTS_FETCH_SUCCEEDED'
 export const USER_POSTS_FETCH_FAILED = 'USER_POSTS_FETCH_FAILED'
 
 
-export function addPizzaToCart() {
+export function receiveProducts(pizzas) {
   return {
     type: USER_POSTS_FETCH_REQUESTED,
+    pizzas: pizzas,
   }
 }
