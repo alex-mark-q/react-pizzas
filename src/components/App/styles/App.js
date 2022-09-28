@@ -11,6 +11,7 @@ export const Content = styled.div`
 export const Layout = styled.div`
 	display: flex;
 	flex-direction: row;
+	height: 100vh;
 `
 export const Services = styled.div`
 	background-image: url(/images/png/pizza1.jpg);
@@ -25,7 +26,7 @@ export const Boarding = styled.div`
 	flex: 5;
 	display: flex;
 	align-items: center;
-	width: calc(41.66667% - 1.875rem);
+	width: calc(100% - 1.875rem);
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;

@@ -4,11 +4,18 @@ import * as actions from '../actions'
 import * as api from '../../api'
 
 function* getPizzaProduct() {
-  const pizzas = yield call(api.getAllPizzaData)
-  console.log('pizzas ', pizzas);
-  yield put(actions.receiveProducts(pizzas))
+  try {
+    const pizzas = yield call(api.getAllPizzaData)
+    yield put(actions.getUsersSuccess(pizzas))
+  } catch(error) {
+    new Error(error);
+  }
+}
+
+export function* watchGetProducts() {
+  yield takeEvery(actions.USER_POSTS_FETCH_REQUESTED, getPizzaProduct)
 }
 
 export function* rootSaga() {
-  yield all([fork(getPizzaProduct)])
+  yield all([fork(getPizzaProduct), fork(watchGetProducts)])
 }

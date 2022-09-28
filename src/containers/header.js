@@ -6,7 +6,7 @@ export function HeaderContainer({ children }) {
   return (
     <>
     	<Logo>
-        <Logo.Link to = { ROUTES.HOME } alt="Pizzas" /> 
+        <Logo.Link src = '/images/svg/logo.svg' to = { ROUTES.HOME } alt="Pizzas" /> 
       </Logo>
       <NavBar>
       <NavBar.Wrapper>

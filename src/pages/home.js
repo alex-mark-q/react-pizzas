@@ -1,14 +1,23 @@
 import React from 'react';
-import { PaneContainer } from '../containers/pane';
+import { Main } from '../containers/main';
+import { Pizza } from '../containers/pizza';
 import { SideBarContainer } from '../containers/sidebar';
+import { Pane } from '../components'
 
 
 export default function Home() {
   return (
   	<>
-  		<PaneContainer>
-        <SideBarContainer />
-  		</PaneContainer>
+      <Pane>
+        <Pane.CPane>
+      		<Main>
+      		</Main>
+          <SideBarContainer />
+        </Pane.CPane>
+        <Pane.CPane>
+          <Pizza />
+        </Pane.CPane>
+      </Pane>
   	</>
   )
 }

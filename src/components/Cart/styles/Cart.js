@@ -1,18 +1,29 @@
 import styled from 'styled-components/macro';
 
-export const Popup = styled.div`
-	width: 100%;
+export const Container = styled.div`
 `
-export const Wrapper = styled.div`
-	width: 100%;
+export const List = styled.div`
+  background-color: #edf0f3;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
-export const Close = styled.button`
-	display: none;
-	z-index: 9997;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
+export const Block = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 35px;
 `
-export const ContentWrapper = styled.div`
-	width: 100%;
+export const Size = styled.div`
+	margin-top: 30px;
+`
+export const Image = styled.img`
+  height: 90px;
+  width: 90px;
+`
+export const Title = styled.h2`
 `

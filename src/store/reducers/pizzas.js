@@ -1,19 +1,19 @@
 import { USER_POSTS_FETCH_SUCCEEDED } from '../actions'
 
 const initState = {
-  posts: null,
+  items: [],
+  isFetching: false
 }
 
-export const reducer = (state = initState, action) => {
+export const product = (state = initState, action) => {
   switch (action.type) {
-    case USER_POSTS_FETCH_SUCCEEDED: {
-      const posts = action.payload.data
+    case USER_POSTS_FETCH_SUCCEEDED: 
       return {
         ...state,
-        posts,
-      }
-    }
+        items: action.payload,
+        isFetching: true
+      };
     default:
-      return state
+      return state;
   }
 }

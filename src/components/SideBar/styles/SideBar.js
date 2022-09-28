@@ -40,7 +40,6 @@ export const HeadLine = styled.div`
 `
 export const HeadLineWrapper = styled.div`
 	position: absolute;
-	bottom: 50%;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

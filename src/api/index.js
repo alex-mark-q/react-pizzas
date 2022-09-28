@@ -5,7 +5,6 @@ export const getAllPizzaData = () => {
   //   /${pathname}
   // `).then((response) => response.json())
   return fetch(
-    `http://localhost:3001/data/`
-    // `/pizzas`
-  ).then((response) => response.json())
+    `http://localhost:3004/pizzas/`
+  ).then((response) => response.json()).then((item) => item )
 }

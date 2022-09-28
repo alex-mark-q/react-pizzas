@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const CPane = styled.div`
 	display: flex;
 	outline: none;
+	height: 100vh;
 	overflow: visible;
 	user-select: text;
 	flex-direction: row;
