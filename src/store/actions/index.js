@@ -1,15 +1,29 @@
-export const USER_POSTS_FETCH_REQUESTED = 'USER_POSTS_FETCH_REQUESTED'
-export const USER_POSTS_FETCH_SUCCEEDED = 'USER_POSTS_FETCH_SUCCEEDED'
-export const USER_POSTS_FETCH_FAILED = 'USER_POSTS_FETCH_FAILED'
+export const USER_PIZZA_FETCH_REQUESTED = 'USER_PIZZA_FETCH_REQUESTED'
+export const USER_PIZZA_FETCH_SUCCEEDED = 'USER_PIZZA_FETCH_SUCCEEDED'
 
-export function getUsersSuccess(pizzas) {
+export const USER_DOUGH_FETCH_REQUESTED = 'USER_DOUGH_FETCH_REQUESTED'
+export const USER_DOUGH_FETCH_SUCCEEDED = 'USER_DOUGH_FETCH_SUCCEEDED'
+
+export function getPizzaSuccess(pizzas) {
   return {
-    type: USER_POSTS_FETCH_SUCCEEDED,
+    type: USER_PIZZA_FETCH_SUCCEEDED,
     payload: { pizzas }
   }
 }
-export function getUsersRequest() {
+export function getPizzaRequest() {
   return {
-    type: USER_POSTS_FETCH_REQUESTED
+    type: USER_PIZZA_FETCH_REQUESTED
+  }
+}
+
+export function getDoughSuccess(dough) {
+  return {
+    type: USER_DOUGH_FETCH_SUCCEEDED,
+    payload: { dough }
+  }
+}
+export function getDoughRequest() {
+  return {
+    type: USER_DOUGH_FETCH_REQUESTED
   }
 }

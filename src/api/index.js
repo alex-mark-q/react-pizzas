@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-export const getAllPizzaData = () => {
-  // axios.get(`
-  //   /${pathname}
-  // `).then((response) => response.json())
-  return fetch(
-    `http://localhost:3004/pizzas/`
-  ).then((response) => response.json()).then((item) => item )
+export const getPizzaData = async (pathname) => {
+  try {
+    return fetch(
+      `http://localhost:3004/${pathname}/`
+    ).then((response) => response.json()).then(item => item)
+  } catch(error) {
+    console.log(error);
+  }
 }

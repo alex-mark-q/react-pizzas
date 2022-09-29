@@ -6,6 +6,7 @@ import { SideBarContainer } from './sidebar'
 export function Pizza() {
 
   const my = useSelector((state) => state);
+  console.log('state', my)
   const pizza = useSelector(({ product }) => product.items.pizzas);
   const isLoaded = useSelector(({ product }) => product.isFetching);
 

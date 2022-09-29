@@ -1,21 +1,9 @@
-import { call, put, takeEvery, all, takeLatest, fork } from 'redux-saga/effects'
+import { all, fork } from 'redux-saga/effects'
+import * as PizzaSaga from './getPizzaSaga'
+import * as DoughSaga from './getDoughSaga'
 
-import * as actions from '../actions'
-import * as api from '../../api'
-
-function* getPizzaProduct() {
-  try {
-    const pizzas = yield call(api.getAllPizzaData)
-    yield put(actions.getUsersSuccess(pizzas))
-  } catch(error) {
-    new Error(error);
-  }
-}
-
-export function* watchGetProducts() {
-  yield takeEvery(actions.USER_POSTS_FETCH_REQUESTED, getPizzaProduct)
-}
-
-export function* rootSaga() {
-  yield all([fork(getPizzaProduct), fork(watchGetProducts)])
+export default function* rootSaga() {
+  yield all(
+    [...Object.values(PizzaSaga), ...Object.values(DoughSaga)].map(fork)
+  );
 }
