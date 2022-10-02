@@ -19,13 +19,15 @@
   "dough": [
     {
       "id": 3,
-      "imageUrl": "",
+      "imageUrl": "/images/svg/pizza-thin.svg",
+      "text": "Thin dough",
       "cal": "80",
       "price": "0.3"
     },
     {
       "id": 4,
-      "imageUrl": "",
+      "imageUrl": "/images/svg/pizza-thin.svg",
+      "text": "Thick dough",
       "cal": "100",
       "price": "0.3"
     }

@@ -14,12 +14,14 @@ export const Layout = styled.div`
 	height: 100vh;
 `
 export const Services = styled.div`
-	background-image: url(/images/png/pizza1.jpg);
+	background: ${({ src }) => (src ? `url(/images/png/${src}.jpg)` : '#191c21')};
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: flex;
 	width: calc(100% - 1.875rem);
 	flex: 3;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 `
 export const Boarding = styled.div`

@@ -10,7 +10,6 @@ function callApi() {
 function* getPizzaProduct() {
   try {
     const pizzas = yield call(callApi)
-        console.log('dough', pizzas)
     yield put(actions.getPizzaSuccess(pizzas))
   } catch(error) {
     new Error(error);

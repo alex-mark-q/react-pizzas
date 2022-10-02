@@ -5,8 +5,6 @@ export const Boarding = styled.div`
 	display: flex;
 	align-items: center;
 	width: calc(41.66667% - 1.875rem);
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
 `
 export const Container = styled.div`

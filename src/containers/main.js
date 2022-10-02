@@ -12,7 +12,7 @@ export function Main() {
         <App>
           <App.Content>
             <App.Layout>
-              <App.Services>
+              <App.Services src = "pizza1">
                 <App.Present>
                   <HeaderContainer />
                 </App.Present>
