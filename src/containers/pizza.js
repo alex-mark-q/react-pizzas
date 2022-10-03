@@ -1,20 +1,26 @@
 import React from 'react'
 import { Pane, App, Panel, Ingredients, Cart, Order } from '../components'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { SideBarContainer } from './sidebar'
 
 export function Pizza() {
 
   const mystate = useSelector((state) => state);
   // console.log('state', mystate)
-  const pizza = useSelector(({ product }) => product.items.pizzas)
-  const dough = useSelector(({ dough }) => dough.items.dough)
-  // console.log('dough', dough)
-  const isLoaded = useSelector(({ product }) => product.isFetching)
 
-  // dough?.map((obj) => {
+  const pizzas = useSelector(({ product }) => product.items.pizzas)
+
+  const dough = useSelector(({ dough }) => dough.items.dough)
+  const isLoaded = useSelector(({ product }) => product.isFetching)
+  const dispatch = useDispatch();
+
+  // pizza?.map((obj) => {
   //   console.log('obj', obj)
   // })
+
+  function handleAddPizzaToCart() {
+    dispatch({type: 'USER_PIZZA_ADD_TO_CART'});
+  }
 
   return (
     <Pane.Contents>
@@ -28,9 +34,9 @@ export function Pizza() {
                     Size
                   </Cart.Title>
                   <Cart.Block>
-                    <Cart.List>
-
-                    </Cart.List>
+                    <Cart.Ingredient>
+                      
+                    </Cart.Ingredient>
                   </Cart.Block>
                 </Cart.Ingredient>
                 <Cart.Ingredient>
@@ -38,9 +44,9 @@ export function Pizza() {
                     dough
                   </Cart.Title>
                   <Cart.Block>
-                    <Cart.List>
+                    <Cart.Ingredient>
 
-                    </Cart.List>
+                    </Cart.Ingredient>
                   </Cart.Block>
                 </Cart.Ingredient>
 
@@ -60,7 +66,6 @@ export function Pizza() {
                   </Order.Price>
                 </Order>
               </Cart.Hero>
-
             </App.Services>
             <App.Boarding>
               <Cart>
@@ -68,36 +73,10 @@ export function Pizza() {
                   1. Choose pizza size & dough type
                 </Cart.Title>
                 <Cart.Block>
-                  {isLoaded &&
-                    pizza.map((item) => (
-                      <Cart.List key = { item.id }>
-                        <Cart.Image src = { item.imageUrl } />
-                        <Cart.Size>
-                          { item.size }
-                        </Cart.Size>
-                      </Cart.List>
-                    ))
-                  }
+                  <Cart.List profile = { pizzas } onClick = { () => { handleAddPizzaToCart() } } />
                 </Cart.Block>
                 <Cart.Block>
-                  {
-                    dough?.map((item) => (
-                      <Cart.List key = { item.id }>
-                        <Cart.Image src = { item.imageUrl } />
-                        <Cart.Text>
-                          { item.text }
-                        </Cart.Text>
-                        <Cart.Info>
-                          <Cart.Cal>
-                            { item.cal }
-                          </Cart.Cal>
-                          <Cart.Price>
-                            { item.price }
-                          </Cart.Price>
-                        </Cart.Info>
-                      </Cart.List>
-                    ))
-                  }
+                  <Cart.DoughAndIngredients profile = { dough } />
                 </Cart.Block>
               </Cart>
             </App.Boarding>

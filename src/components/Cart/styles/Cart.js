@@ -52,3 +52,15 @@ export const Hero = styled.div`
   width: 400px;
   justify-content: center;
 `
+
+export const DoughAndIngredients = styled.div`
+  background-color: #edf0f3;
+  border-radius: 10px;
+  text-align: center;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`

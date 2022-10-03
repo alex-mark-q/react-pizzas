@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero } from './styles/Cart'
+import { Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients } from './styles/Cart'
+import { useSelector } from 'react-redux'
 
 export default function Cart ({  children,  ...restProps }) {
   return <Container { ...restProps }> {children} </Container>;
@@ -10,15 +11,41 @@ Cart.Title = function CartTitle({ children, ...restProps }) {
 Cart.Block = function CartBlock({ children, ...restProps }) {
   return <Block {...restProps}>{children}</Block>;
 };
-Cart.List = function CartList({ children, ...restProps }) {
-  return <List {...restProps}>{children}</List>;
+
+Cart.List = function CartList({ profile, ...restProps }) {
+  return (
+    profile?.map((item) => (
+      <List key = { item.id } {...restProps}>
+        <Image src = { item.imageUrl } />
+        <Size {...restProps}>
+          { item.size }
+        </Size>
+      </List>
+    ))
+  )
 };
-Cart.Size = function CartSize({ children, ...restProps }) {
-  return <Size {...restProps}>{children}</Size>;
+
+Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, ...restProps }) {
+  return (
+    profile?.map((item) => (
+      <DoughAndIngredients  key = { item.id } {...restProps}>
+        <Image src = { item.imageUrl } />
+        <Text>
+          { item.text }
+        </Text>
+        <Info>
+          <Cal>
+            { item.cal }
+          </Cal>
+          <Price>
+            { item.price }
+          </Price>
+        </Info>
+      </DoughAndIngredients>
+    ))
+  )
 };
-Cart.Image = function CartImage({ children, ...restProps }) {
-  return <Image {...restProps}>{children}</Image>;
-};
+
 Cart.Info = function CartInfo({ children, ...restProps }) {
   return <Info {...restProps}>{children}</Info>;
 };
