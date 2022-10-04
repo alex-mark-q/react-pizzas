@@ -3,7 +3,6 @@ import styled from 'styled-components/macro';
 export const Container = styled.div`
 `
 export const List = styled.div`
-  background-color: #edf0f3;
   border-radius: 10px;
   text-align: center;
   width: 180px;
@@ -12,6 +11,7 @@ export const List = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 export const Block = styled.div`
 	display: flex;
@@ -54,6 +54,18 @@ export const Hero = styled.div`
 `
 
 export const DoughAndIngredients = styled.div`
+  border-radius: 10px;
+  text-align: center;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer
+`
+
+export const Dough = styled.div`
   background-color: #edf0f3;
   border-radius: 10px;
   text-align: center;
@@ -63,4 +75,18 @@ export const DoughAndIngredients = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`
+export const Scale = styled.div`
+
+  text-align: center;
+`
+export const WrapperElement = styled.div`
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #edf0f3;
+border-radius: 10px;
 `

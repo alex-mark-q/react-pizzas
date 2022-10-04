@@ -1,4 +1,8 @@
-import { USER_PIZZA_FETCH_SUCCEEDED, USER_DOUGH_FETCH_SUCCEEDED } from '../actions'
+import { 
+  USER_PIZZA_FETCH_SUCCEEDED, 
+  USER_DOUGH_FETCH_SUCCEEDED,
+  USER_PIZZA_ADD_TO_CART
+} from '../actions'
 
 const initState = {
   items: [],
@@ -14,6 +18,17 @@ export const product = (state = initState, action) => {
         items: action.payload,
         isFetching: true
       };
+    }
+    case USER_PIZZA_ADD_TO_CART: {
+      const currentPizzaItems = action.payload
+      console.log('USER_PIZZA_ADD_TO_CART', currentPizzaItems);
+      const newItems = {
+        ...state.items,
+        size: [currentPizzaItems]
+      }
+      return {
+        items: newItems
+      }
     }
     default:
       return state;

@@ -24,10 +24,6 @@ export function Main() {
           </App.Content>
         </App>
       </Pane.Contents>
-{/*        {pizza?.map((item) => (
-            <Pizza key = { item.id } imageUrl = { item.imageUrl } size = { item.size } />
-          )
-        )}*/}
     </>
   );
 }

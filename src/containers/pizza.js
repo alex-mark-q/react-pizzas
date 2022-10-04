@@ -1,26 +1,22 @@
 import React from 'react'
-import { Pane, App, Panel, Ingredients, Cart, Order } from '../components'
-import { useSelector, useDispatch } from 'react-redux'
-import { SideBarContainer } from './sidebar'
+import { Pane, App, Cart, Order } from '../components'
+import { useSelector } from 'react-redux'
 
 export function Pizza() {
 
   const mystate = useSelector((state) => state);
-  // console.log('state', mystate)
+  console.log('state', mystate)
 
   const pizzas = useSelector(({ product }) => product.items.pizzas)
+  const size  = useSelector(({ product }) => product.items.size)
 
   const dough = useSelector(({ dough }) => dough.items.dough)
+
   const isLoaded = useSelector(({ product }) => product.isFetching)
-  const dispatch = useDispatch();
 
-  // pizza?.map((obj) => {
-  //   console.log('obj', obj)
+  // size.map((item) => {
+  //   console.log('!!!', item);
   // })
-
-  function handleAddPizzaToCart() {
-    dispatch({type: 'USER_PIZZA_ADD_TO_CART'});
-  }
 
   return (
     <Pane.Contents>
@@ -34,9 +30,9 @@ export function Pizza() {
                     Size
                   </Cart.Title>
                   <Cart.Block>
-                    <Cart.Ingredient>
-                      
-                    </Cart.Ingredient>
+                    <Cart.WrapperElement>
+                      <Cart.Scale profile = { size } />
+                    </Cart.WrapperElement>
                   </Cart.Block>
                 </Cart.Ingredient>
                 <Cart.Ingredient>
@@ -44,12 +40,11 @@ export function Pizza() {
                     dough
                   </Cart.Title>
                   <Cart.Block>
-                    <Cart.Ingredient>
+                    <Cart.Dough>
 
-                    </Cart.Ingredient>
+                    </Cart.Dough>
                   </Cart.Block>
                 </Cart.Ingredient>
-
               </Cart.Hero>
               <Cart.Hero>
                 <Order>
@@ -73,7 +68,7 @@ export function Pizza() {
                   1. Choose pizza size & dough type
                 </Cart.Title>
                 <Cart.Block>
-                  <Cart.List profile = { pizzas } onClick = { () => { handleAddPizzaToCart() } } />
+                  <Cart.List profile = { pizzas } />
                 </Cart.Block>
                 <Cart.Block>
                   <Cart.DoughAndIngredients profile = { dough } />

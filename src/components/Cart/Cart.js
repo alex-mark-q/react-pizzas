@@ -1,6 +1,6 @@
-import React from 'react'
-import { Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients } from './styles/Cart'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement } from './styles/Cart'
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function Cart ({  children,  ...restProps }) {
   return <Container { ...restProps }> {children} </Container>;
@@ -13,9 +13,18 @@ Cart.Block = function CartBlock({ children, ...restProps }) {
 };
 
 Cart.List = function CartList({ profile, ...restProps }) {
+  const dispatch = useDispatch();
+
+  function onAddPizzaSize(size) {
+    dispatch({
+      type: 'USER_PIZZA_ADD_TO_CART',
+      payload: size
+    });
+  }
+
   return (
     profile?.map((item) => (
-      <List key = { item.id } {...restProps}>
+      <List key = { item.id } onClick = { () => { onAddPizzaSize(item) } } {...restProps} >
         <Image src = { item.imageUrl } />
         <Size {...restProps}>
           { item.size }
@@ -46,6 +55,20 @@ Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, ...restPr
   )
 };
 
+Cart.Scale = function CartScale({ profile, ...restProps }) {
+  console.log('Scale ', profile);
+  return (
+    profile?.map((item) => (
+      <Scale key = { item.id } {...restProps}>
+        <Image src = { item.imageUrl } />
+        <Size {...restProps}>
+          { item.size }
+        </Size>
+      </Scale>
+    ))
+  )
+};
+
 Cart.Info = function CartInfo({ children, ...restProps }) {
   return <Info {...restProps}>{children}</Info>;
 };
@@ -63,4 +86,10 @@ Cart.Ingredient = function CartIngredients({ children, ...restProps }) {
 };
 Cart.Hero = function CartHero({ children, ...restProps }) {
   return <Hero {...restProps}>{children}</Hero>;
+};
+Cart.Dough = function CartDough({ children, ...restProps }) {
+  return <Dough {...restProps}>{children}</Dough>;
+};
+Cart.WrapperElement = function CartWrapperElement({ children, ...restProps }) {
+  return <WrapperElement {...restProps}>{children}</WrapperElement>;
 };
