@@ -20,6 +20,6 @@ export function* watchGetIng() {
   yield takeEvery(actions.USER_INGRIDIENTS_FETCH_REQUESTED, getIngProduct)
 }
 
-export default function* DoughSaga() {
+export default function* IngSaga() {
   yield all([fork(getIngProduct), fork(watchGetIng)])
 }
