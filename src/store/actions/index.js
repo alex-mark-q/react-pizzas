@@ -5,6 +5,7 @@ export const USER_DOUGH_FETCH_REQUESTED = 'USER_DOUGH_FETCH_REQUESTED'
 export const USER_DOUGH_FETCH_SUCCEEDED = 'USER_DOUGH_FETCH_SUCCEEDED'
 
 export const USER_PIZZA_ADD_TO_CART = 'USER_PIZZA_ADD_TO_CART'
+export const USER_DOUGH_ADD_TO_CART = 'USER_DOUGH_ADD_TO_CART'
 
 export function getPizzaSuccess(pizzas) {
   return {

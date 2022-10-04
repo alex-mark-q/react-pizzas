@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
+  margin-bottom: 75px
 `
 export const List = styled.div`
   border-radius: 10px;
@@ -28,7 +29,6 @@ export const Image = styled.img`
 `
 export const Title = styled.span`
   text-transform: uppercase;
-  color: #fff;
   font-size: 26px;
   text-align: left;
 `

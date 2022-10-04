@@ -1,7 +1,8 @@
 import { 
   USER_PIZZA_FETCH_SUCCEEDED, 
   USER_DOUGH_FETCH_SUCCEEDED,
-  USER_PIZZA_ADD_TO_CART
+  USER_PIZZA_ADD_TO_CART,
+  USER_DOUGH_ADD_TO_CART
 } from '../actions'
 
 const initState = {
@@ -24,6 +25,16 @@ export const product = (state = initState, action) => {
       const newItems = {
         ...state.items,
         size: [currentPizzaItems]
+      }
+      return {
+        items: newItems
+      }
+    }
+    case USER_DOUGH_ADD_TO_CART: {
+      const currentDoughItems = action.payload
+      const newItems = {
+        ...state.items,
+        dough: [currentDoughItems]
       }
       return {
         items: newItems

@@ -38,8 +38,11 @@ export function Hero() {
           </Panel.Step>
           <Panel.Order>
             <Panel.Button>
-              <span>make your own pizza</span>
+              
             </Panel.Button>
+              <Panel.Text>
+                <span>make your own pizza</span>
+              </Panel.Text>
           </Panel.Order>
         </Panel.Description>
       </Panel.Hero>

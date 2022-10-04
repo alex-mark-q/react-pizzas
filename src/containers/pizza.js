@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pane, App, Cart, Order } from '../components'
+import { Pane, App, Cart, Order, Panel } from '../components'
 import { useSelector } from 'react-redux'
 
 export function Pizza() {
@@ -8,7 +8,8 @@ export function Pizza() {
   console.log('state', mystate)
 
   const pizzas = useSelector(({ product }) => product.items.pizzas)
-  const size  = useSelector(({ product }) => product.items.size)
+  const itemSize  = useSelector(({ product }) => product.items.size)
+  const itemDough  = useSelector(({ product }) => product.items.dough)
 
   const dough = useSelector(({ dough }) => dough.items.dough)
 
@@ -26,24 +27,22 @@ export function Pizza() {
             <App.Services>
               <Cart.Hero>
                 <Cart.Ingredient>
-                  <Cart.Title>
+                  <Cart.Title style = {{ color: '#fff' }}>
                     Size
                   </Cart.Title>
                   <Cart.Block>
                     <Cart.WrapperElement>
-                      <Cart.Scale profile = { size } />
+                      <Cart.Scale profile = { itemSize } />
                     </Cart.WrapperElement>
                   </Cart.Block>
                 </Cart.Ingredient>
                 <Cart.Ingredient>
-                  <Cart.Title>
+                  <Cart.Title style = {{ color: '#fff' }}>
                     dough
                   </Cart.Title>
                   <Cart.Block>
                     <Cart.WrapperElement>
-                      <Cart.Dough>
-
-                      </Cart.Dough>
+                      <Cart.Scale profile = { itemDough } />
                     </Cart.WrapperElement>
                   </Cart.Block>
                 </Cart.Ingredient>
@@ -65,17 +64,28 @@ export function Pizza() {
               </Cart.Hero>
             </App.Services>
             <App.Boarding>
-              <Cart>
-                <Cart.Title>
-                  1. Choose pizza size & dough type
-                </Cart.Title>
-                <Cart.Block>
-                  <Cart.List profile = { pizzas } />
-                </Cart.Block>
-                <Cart.Block>
-                  <Cart.DoughAndIngredients profile = { dough } />
-                </Cart.Block>
-              </Cart>
+              <Panel.Hero>
+                <Cart>
+                  <Cart.Title>
+                    1. Choose pizza size & dough type
+                  </Cart.Title>
+                  <Cart.Block>
+                    <Cart.List profile = { pizzas } />
+                  </Cart.Block>
+                  <Cart.Block>
+                    <Cart.DoughAndIngredients profile = { dough } />
+                  </Cart.Block>
+                </Cart>
+                <Panel.Order>
+                  <Panel.Button>
+                    
+                  </Panel.Button>
+                    <Panel.Text>
+                      <span>Next</span>
+                      <span>Choose ingredients</span>
+                    </Panel.Text>
+                </Panel.Order>
+              </Panel.Hero>
             </App.Boarding>
           </App.Layout>
          </App.Content>

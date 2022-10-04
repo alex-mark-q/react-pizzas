@@ -57,22 +57,26 @@ export const Order = styled.div`
 	justify-content: flex-start;
 	flex-direction: row;
 	height: 70px;
-	background: url("/images/svg/custom-pizza.svg") no-repeat;
-
+	position: relative;
+	width: 255px;
+		&:hover div {
+		color: #fff;
+	}
 `
 
 export const Button = styled.button`
 	background-color: inherit;
 	display: flex;
-	width: 255px;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	border: none;
-	font-size: 36px;
 	position: relative;
 	cursor: pointer;
 	height: 100%;
 	padding: 0;
+	position: absolute;
+	width: 270px;
 	&:before {
     transition: all .3s ease;
 		content: '';
@@ -94,19 +98,7 @@ export const Button = styled.button`
 		background: #E53934;
 		width: 100%;
 	}
-	span {
-		margin-left: 50px;
-    text-align: left;
-    text-transform: uppercase;
-    font-family: 'GillSansLightC';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 15px;
-    z-index: 99;
-	}
-	&:hover span {
-		color: #fff;
-	}
+
 	&:after {
 		content: '';
 		width: 35px;
@@ -117,5 +109,20 @@ export const Button = styled.button`
 		z-index: 100;
     position: absolute;
     left: 10px;
+	}
+`
+
+export const Text = styled.div`
+	z-index: 99;
+	margin-left: 75px;
+	display: flex;
+	flex-direction: column;
+	span {
+    text-align: left;
+    text-transform: uppercase;
+    font-family: 'GillSansLightC';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
 	}
 `

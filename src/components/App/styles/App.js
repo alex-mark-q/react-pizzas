@@ -32,6 +32,7 @@ export const Boarding = styled.div`
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
+	flex-direction: column;
 `
 
 export const Present = styled.div`
