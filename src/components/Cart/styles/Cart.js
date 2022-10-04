@@ -66,15 +66,7 @@ export const DoughAndIngredients = styled.div`
 `
 
 export const Dough = styled.div`
-  background-color: #edf0f3;
-  border-radius: 10px;
   text-align: center;
-  width: 180px;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
 export const Scale = styled.div`
 

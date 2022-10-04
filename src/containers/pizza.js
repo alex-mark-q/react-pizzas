@@ -40,9 +40,11 @@ export function Pizza() {
                     dough
                   </Cart.Title>
                   <Cart.Block>
-                    <Cart.Dough>
+                    <Cart.WrapperElement>
+                      <Cart.Dough>
 
-                    </Cart.Dough>
+                      </Cart.Dough>
+                    </Cart.WrapperElement>
                   </Cart.Block>
                 </Cart.Ingredient>
               </Cart.Hero>

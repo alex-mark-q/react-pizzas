@@ -14,8 +14,11 @@ Cart.Block = function CartBlock({ children, ...restProps }) {
 
 Cart.List = function CartList({ profile, ...restProps }) {
   const dispatch = useDispatch();
+  const [colorChange, setColorChange] = useState('white');
 
   function onAddPizzaSize(size) {
+    console.log('size id ', size.id)
+    setColorChange((ctr) => ( { ...ctr, [size.id]: (ctr[size.id] === "blue" ? "white" : "blue") }))
     dispatch({
       type: 'USER_PIZZA_ADD_TO_CART',
       payload: size
@@ -24,7 +27,7 @@ Cart.List = function CartList({ profile, ...restProps }) {
 
   return (
     profile?.map((item) => (
-      <List key = { item.id } onClick = { () => { onAddPizzaSize(item) } } {...restProps} >
+      <List className = { colorChange } key = { item.id } onClick = { () => { onAddPizzaSize(item) } } {...restProps} >
         <Image src = { item.imageUrl } />
         <Size {...restProps}>
           { item.size }
@@ -56,7 +59,7 @@ Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, ...restPr
 };
 
 Cart.Scale = function CartScale({ profile, ...restProps }) {
-  console.log('Scale ', profile);
+  // console.log('Scale ', profile);
   return (
     profile?.map((item) => (
       <Scale key = { item.id } {...restProps}>

@@ -21,7 +21,6 @@ export const product = (state = initState, action) => {
     }
     case USER_PIZZA_ADD_TO_CART: {
       const currentPizzaItems = action.payload
-      console.log('USER_PIZZA_ADD_TO_CART', currentPizzaItems);
       const newItems = {
         ...state.items,
         size: [currentPizzaItems]
