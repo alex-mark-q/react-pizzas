@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-  margin-bottom: 75px
+  margin-bottom: 70px
 `
 export const List = styled.div`
   border-radius: 10px;
@@ -79,6 +79,20 @@ export const WrapperElement = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #edf0f3;
-border-radius: 10px;
+  background-color: #212428;
+  border-radius: 10px;
+`
+
+export const Ing = styled.div`
+
+`
+export const WrapperIng = styled.div`
+  width: 180px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #212428;
+  border-radius: 10px;
 `

@@ -47,6 +47,27 @@ export function Pizza() {
                   </Cart.Block>
                 </Cart.Ingredient>
               </Cart.Hero>
+              <Cart.Title style = {{ color: '#fff' }}>
+                ingredients
+              </Cart.Title>
+              <Cart.Hero>
+              
+                <Cart.Ingredient>
+                  <Cart.WrapperIng>
+                    <Cart.Ing>
+
+                    </Cart.Ing>
+                  </Cart.WrapperIng>
+                </Cart.Ingredient>
+                <Cart.Ingredient>
+                  <Cart.WrapperIng>
+                      <Cart.Ing>
+                        
+                      </Cart.Ing>
+                  </Cart.WrapperIng>
+                </Cart.Ingredient>
+
+              </Cart.Hero>
               <Cart.Hero>
                 <Order>
                   <Order.Info>

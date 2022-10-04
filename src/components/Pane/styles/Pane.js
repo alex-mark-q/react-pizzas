@@ -15,11 +15,11 @@ export const CPane = styled.div`
 	flex-direction: row;
 `
 export const Contents = styled.div`
-	width: calc(100% - 1.875rem);
+	width: calc(94% - 1.875rem);
 `
 export const SideBarWrapper = styled.div`
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 7.33333%;
 	flex: 0 0 7.33333%;
-	width: calc(8.33333% - 1.875rem);
+	width: calc(7.33333% - 1.875rem);
 `

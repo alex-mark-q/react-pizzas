@@ -7,6 +7,9 @@ export const USER_DOUGH_FETCH_SUCCEEDED = 'USER_DOUGH_FETCH_SUCCEEDED'
 export const USER_PIZZA_ADD_TO_CART = 'USER_PIZZA_ADD_TO_CART'
 export const USER_DOUGH_ADD_TO_CART = 'USER_DOUGH_ADD_TO_CART'
 
+export const USER_INGRIDIENTS_FETCH_SUCCEEDED = 'USER_INGRIDIENTS_FETCH_SUCCEEDED'
+export const USER_INGRIDIENTS_FETCH_REQUESTED = 'USER_INGRIDIENTS_FETCH_REQUESTED'
+
 export function getPizzaSuccess(pizzas) {
   return {
     type: USER_PIZZA_FETCH_SUCCEEDED,
@@ -28,5 +31,18 @@ export function getDoughSuccess(dough) {
 export function getDoughRequest() {
   return {
     type: USER_DOUGH_FETCH_REQUESTED
+  }
+}
+
+export function getIngridientsSuccess(ingridients) {
+  return {
+    type: USER_INGRIDIENTS_FETCH_SUCCEEDED,
+    payload: { ingridients }
+  }
+}
+
+export function getIngridientsRequest() {
+  return {
+    type: USER_INGRIDIENTS_FETCH_REQUESTED
   }
 }

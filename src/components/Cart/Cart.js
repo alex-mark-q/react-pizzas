@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement } from './styles/Cart'
+import { WrapperIng, Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement, Ing } from './styles/Cart'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Cart ({  children,  ...restProps }) {
@@ -15,7 +15,6 @@ Cart.Block = function CartBlock({ children, ...restProps }) {
 Cart.List = function CartList({ profile, ...restProps }) {
   const dispatch = useDispatch();
   const [colorChange, setColorChange] = useState('white');
-
   function onAddPizzaSize(item) {
 
     console.log('size id ', item.id)
@@ -26,7 +25,6 @@ Cart.List = function CartList({ profile, ...restProps }) {
       payload: item
     });
   }
-
   return (
     profile?.map((item) => (
       <List className = { colorChange } key = { item.id } onClick = { () => { onAddPizzaSize(item) } } {...restProps} >
@@ -105,4 +103,11 @@ Cart.Dough = function CartDough({ children, ...restProps }) {
 };
 Cart.WrapperElement = function CartWrapperElement({ children, ...restProps }) {
   return <WrapperElement {...restProps}>{children}</WrapperElement>;
+};
+Cart.Ing = function CartListIng({ children, ...restProps }) {
+  return <Ing {...restProps}>{children}</Ing>;
+};
+
+Cart.WrapperIng = function CartWrapperIng({ children, ...restProps }) {
+  return <WrapperIng {...restProps}>{children}</WrapperIng>;
 };
