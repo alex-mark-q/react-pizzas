@@ -97,9 +97,6 @@ export function Pizza() {
                   <Cart.Block>
                     <Cart.DoughAndIngredients profile = { dough } />
                   </Cart.Block>
-                  <Cart.Block>
-                    <Cart.DoughAndIngredients profile = { dough } />
-                  </Cart.Block>
                 </Cart>
                 <Panel.Order>
                   <Panel.Button />
