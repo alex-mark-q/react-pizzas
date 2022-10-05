@@ -34,10 +34,10 @@ export function getDoughRequest() {
   }
 }
 
-export function getIngridientsSuccess(ingridients) {
+export function getIngridientsSuccess(ing) {
   return {
     type: USER_INGRIDIENTS_FETCH_SUCCEEDED,
-    payload: { ingridients }
+    payload: ing
   }
 }
 

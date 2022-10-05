@@ -79,6 +79,9 @@ Cart.Scale = function CartScale({ profile, ...restProps }) {
     ))
   )
 };
+Cart.Ingredient = function CartIngredients({ children, ...restProps }) {
+  return <Ingredient {...restProps}>{children}</Ingredient>;
+};
 
 Cart.Info = function CartInfo({ children, ...restProps }) {
   return <Info {...restProps}>{children}</Info>;
@@ -92,9 +95,7 @@ Cart.Price = function CartPrice({ children, ...restProps }) {
 Cart.Text = function CartText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };
-Cart.Ingredient = function CartIngredients({ children, ...restProps }) {
-  return <Ingredient {...restProps}>{children}</Ingredient>;
-};
+
 Cart.Hero = function CartHero({ children, ...restProps }) {
   return <Hero {...restProps}>{children}</Hero>;
 };

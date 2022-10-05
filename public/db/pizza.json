@@ -35,78 +35,71 @@
   "ingredients": [
     {
       "id": 5,
-      "imageUrl": "",
+      "imageUrl": "/images/png/product-1-600x500.png",
       "name": "olives",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 6,
-      "imageUrl": "",
+      "imageUrl": "/images/png/product-2-600x500.png",
       "name": "tomato",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 7,
-      "imageUrl": "",
+      "imageUrl": "/images/png/product-3-600x500.png",
       "name": "chili",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 8,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-4-600x500.png",
+      "name": "onion",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 9,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-5-600x500.png",
+      "name": "pinapple",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 10,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-6-600x500.png",
+      "name": "mushrooms",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 11,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-7-600x500.png",
+      "name": "chili",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 12,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-2-600x500.png",
+      "name": "pepper",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 13,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-1-600x500.png",
+      "name": "cheese",
       "cal": "100",
       "price": "0.3"
     },
     {
       "id": 14,
-      "imageUrl": "",
-      "name": "",
-      "cal": "100",
-      "price": "0.3"
-    },
-    {
-      "id": 15,
-      "imageUrl": "",
-      "name": "",
+      "imageUrl": "/images/png/product-5-600x500.png",
+      "name": "bacon",
       "cal": "100",
       "price": "0.3"
     }

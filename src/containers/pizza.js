@@ -5,17 +5,25 @@ import { useSelector } from 'react-redux'
 export function Pizza() {
 
   const mystate = useSelector((state) => state);
-  console.log('state', mystate)
+  // console.log('state', mystate)
 
   const pizzas = useSelector(({ product }) => product.items.pizzas)
   const itemSize  = useSelector(({ product }) => product.items.size)
   const itemDough  = useSelector(({ product }) => product.items.dough)
 
+  // const ingredients  = useSelector(( state ) => state.ingredients.items)
+
+  const ing = useSelector(({ ingredients }) => ingredients.items)
+  //console.log('itemIng ', ing);
+
   const dough = useSelector(({ dough }) => dough.items.dough)
 
   const isLoaded = useSelector(({ product }) => product.isFetching)
 
-  // size.map((item) => {
+  // ingredients?.map((item) => (
+  //   console.log('!!!', item)
+  // ))
+  // ingredients?.map((item) => {
   //   console.log('!!!', item);
   // })
 
@@ -47,27 +55,20 @@ export function Pizza() {
                   </Cart.Block>
                 </Cart.Ingredient>
               </Cart.Hero>
-              <Cart.Title style = {{ color: '#fff' }}>
-                ingredients
-              </Cart.Title>
               <Cart.Hero>
-              
-                <Cart.Ingredient>
-                  <Cart.WrapperIng>
-                    <Cart.Ing>
-
-                    </Cart.Ing>
-                  </Cart.WrapperIng>
-                </Cart.Ingredient>
-                <Cart.Ingredient>
-                  <Cart.WrapperIng>
-                      <Cart.Ing>
-                        
-                      </Cart.Ing>
-                  </Cart.WrapperIng>
-                </Cart.Ingredient>
-
+                <Cart.Title style = {{ color: '#fff' }}>
+                  ingredients
+                </Cart.Title>
               </Cart.Hero>
+              <Cart.WrapperIng>
+                {
+                  ing.map((ing) => (
+                    <Cart.Ing key = { ing.id }>
+                      {ing.name}
+                    </Cart.Ing>
+                  ))
+                }
+              </Cart.WrapperIng>
               <Cart.Hero>
                 <Order>
                   <Order.Info>
@@ -96,11 +97,12 @@ export function Pizza() {
                   <Cart.Block>
                     <Cart.DoughAndIngredients profile = { dough } />
                   </Cart.Block>
+                  <Cart.Block>
+                    <Cart.DoughAndIngredients profile = { dough } />
+                  </Cart.Block>
                 </Cart>
                 <Panel.Order>
-                  <Panel.Button>
-                    
-                  </Panel.Button>
+                  <Panel.Button />
                     <Panel.Text>
                       <span>Next</span>
                       <span>Choose ingredients</span>
