@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Container, Hero, Description, Header, Title, SubTitle, Step, StepElem, StepImage, StepChain, Order, Button, Text } from './styles/Panel'
 
 export default function Panel ({  children,  ...restProps }) {
@@ -39,7 +39,9 @@ Panel.Order = function PanelOrder({ children, ...restProps }) {
   return <Order {...restProps}>{children}</Order>;
 };
 Panel.Button = function PanelButton({ children, ...restProps }) {
-  return <Button {...restProps}>{children}</Button>;
+  return (
+    <Button {...restProps}>{children}</Button>
+  )
 };
 Panel.Text = function PanelText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;

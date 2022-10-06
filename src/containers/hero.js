@@ -1,7 +1,14 @@
 import React from 'react'
 import { Panel } from '../components'
 
-export function Hero() {
+export function Hero({ resultRef }) {
+  console.log('Hero.js ', resultRef);
+
+  const onScroll = (e) => {
+    e.preventDefault();
+    resultRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Panel>
       <Panel.Hero>
@@ -11,9 +18,9 @@ export function Hero() {
               create your pizza
             </Panel.Title>
             <Panel.SubTitle>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+              when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             </Panel.SubTitle>
           </Panel.Header>
           <Panel.Step>
@@ -37,9 +44,7 @@ export function Hero() {
             </Panel.StepElem>
           </Panel.Step>
           <Panel.Order>
-            <Panel.Button>
-              
-            </Panel.Button>
+            <Panel.Button onClick = { onScroll } />
               <Panel.Text>
                 <span>make your own pizza</span>
               </Panel.Text>

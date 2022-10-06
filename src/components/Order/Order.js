@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { Container, Info, Calories, Gramms, Title, Price } from './styles/Order'
 
 export default function Order ({  children, ...restProps }) {
