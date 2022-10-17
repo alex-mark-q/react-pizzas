@@ -1,108 +1,97 @@
-import React, { useContext, forwardRef } from 'react'
+import React from 'react'
 import { Pane, App, Cart, Order, Panel } from '../components'
 import { useSelector } from 'react-redux'
-import { ScrollContext } from '../context/scroll'
 
 
-export function Pizza( { ref } ) {
-
+export function Pizza() {
   const mystate = useSelector((state) => state);
-  // console.log('state', mystate)
-
-  const pizzas = useSelector(({ product }) => product.items.pizzas)
+  console.log('mystate ', mystate);
   const itemSize  = useSelector(({ product }) => product.items.size)
-  const itemDough  = useSelector(({ product }) => product.items.dough)
-
-  // const ingredients  = useSelector(( state ) => state.ingredients.items)
-
-  const ing = useSelector(({ ingredients }) => ingredients.items)
-  //console.log('itemIng ', ing);
-
-  const dough = useSelector(({ dough }) => dough.items.dough)
+  const itemDough  = useSelector(({ dough }) => dough.items.doughItem)
 
   const isLoaded = useSelector(({ product }) => product.isFetching)
 
-  // ingredients?.map((item) => (
-  //   console.log('!!!', item)
-  // ))
-  // ingredients?.map((item) => {
-  //   console.log('!!!', item);
-  // })
+  const totalPriceIngredients = useSelector(( state ) => state.ingredients.totalPrice)
+  const totalPriceProduct = useSelector(( state ) => state.product.totalPrice)
+  const totalPriceDough = useSelector(( state ) => state.dough.totalPrice)
 
+  const { dough, product,ingredients } = useSelector((state) => state);
+  // console.log(mystate, itemDough[0])
+  const filter = (obj) => {
+    return obj.map(o => o.name === 'string 1');
+  }
   return (
     <>
-      <App.Services>
-        <Cart.Hero>
-          <Cart.Ingredient>
+      <App.RefLayout>
+        <App.Wrapper>
+          <Cart.Hero>
+            <Cart.Ingredient>
+              <Cart.Title style = {{ color: '#fff' }}>
+                Size
+              </Cart.Title>
+              <Cart.Block>
+                <Cart.WrapperElement>
+                  <Cart.Scale profile = { itemSize } />
+                </Cart.WrapperElement>
+              </Cart.Block>
+            </Cart.Ingredient>
+            <Cart.Ingredient>
+              <Cart.Title style = {{ color: '#fff' }}>
+                dough
+              </Cart.Title>
+              <Cart.Block>
+                <Cart.WrapperElement>
+                  <Cart.Scale profile = { itemDough } />
+                </Cart.WrapperElement>
+              </Cart.Block>
+            </Cart.Ingredient>
+          </Cart.Hero>
+          <Cart.Hero>
             <Cart.Title style = {{ color: '#fff' }}>
-              Size
+              ingredients
             </Cart.Title>
-            <Cart.Block>
-              <Cart.WrapperElement>
-                <Cart.Scale profile = { itemSize } />
-              </Cart.WrapperElement>
-            </Cart.Block>
-          </Cart.Ingredient>
-          <Cart.Ingredient>
-            <Cart.Title style = {{ color: '#fff' }}>
-              dough
-            </Cart.Title>
-            <Cart.Block>
-              <Cart.WrapperElement>
-                <Cart.Scale profile = { itemDough } />
-              </Cart.WrapperElement>
-            </Cart.Block>
-          </Cart.Ingredient>
-        </Cart.Hero>
-        <Cart.Hero>
-          <Cart.Title style = {{ color: '#fff' }}>
-            ingredients
-          </Cart.Title>
-        </Cart.Hero>
-        <Cart.WrapperIng>
-          {
-            ing.map((ing) => (
-              <Cart.Ing key = { ing.id }>
-                {ing.name}
-              </Cart.Ing>
-            ))
-          }
-        </Cart.WrapperIng>
-        <Cart.Hero>
-          <Order>
-            <Order.Info>
-              <Order.Calories>
-                <Order.Title>Calories</Order.Title>
-              </Order.Calories>
-              <Order.Gramms>
-                <Order.Title>Gramm</Order.Title>
-              </Order.Gramms>
-            </Order.Info>
-          </Order>
-        </Cart.Hero>
-      </App.Services>
-      <App.Boarding>
-        <Panel.Hero>
-          <Cart>
-            <Cart.Title>
-              1. Choose pizza size & dough type
-            </Cart.Title>
-            <Cart.Block>
-              <Cart.List profile = { pizzas } />
-            </Cart.Block>
-            <Cart.Block>
-              <Cart.DoughAndIngredients profile = { dough } />
-            </Cart.Block>
-          </Cart>
-          <Panel.Order>
-            <Panel.Button />
-              <Panel.Text>
-                <span>Next</span>
-                <span>Choose ingredients</span>
-              </Panel.Text>
-          </Panel.Order>
-        </Panel.Hero>
-      </App.Boarding>
+          </Cart.Hero>
+          <Cart.WrapperIng>
+            <Cart.Ing />
+          </Cart.WrapperIng>
+          <Cart.Hero>
+            <Order>
+              <Order.Info>
+                <Order.Calories>
+                  <Order.Title>Calories</Order.Title>
+                  <span>
+                    { 
+                      [dough.totalCal, product.totalCal, ingredients.totalCal].reduce((sum, price) => {
+                        return sum + price;
+                      }, 0)
+                    }
+                   </span>
+                </Order.Calories>
+                <Order.Gramms>
+                  <Order.Title>Gramm</Order.Title>
+                  <span>
+                    { 
+                      [dough.totalGram, product.totalGram, ingredients.totalGram].reduce((sum, price) => {
+                        return sum + price;
+                      }, 0)
+                    }
+                  </span>
+                </Order.Gramms>
+              </Order.Info>
+              <Order.Price>
+                <Order.Title>Price</Order.Title>
+                <span>
+                  { 
+                    [dough.totalPrice, product.totalPrice, ingredients.totalPrice].reduce((sum, price) => {
+                      return sum + price;
+                    }, 0)
+                  }
+                 </span>
+              </Order.Price>
+            </Order>
+          </Cart.Hero>
+        </App.Wrapper>
+      </App.RefLayout>
     </>
   )
 }

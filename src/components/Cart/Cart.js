@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { WrapperIng, Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement, Ing } from './styles/Cart'
+import React, { useState, useMemo } from 'react'
+import { IngredientWrapp, IngredientEmptyItem, WrapperIng, Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement, IngredientItem } from './styles/Cart'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Cart ({  children,  ...restProps }) {
@@ -17,7 +17,7 @@ Cart.List = function CartList({ profile, ...restProps }) {
   const [colorChange, setColorChange] = useState('white');
   function onAddPizzaSize(item) {
 
-    console.log('size id ', item.id)
+    // console.log('size id ', item.id)
     setColorChange((ctr) => ( { ...ctr, [item.id]: (ctr[item.id] === "blue" ? "white" : "blue") }))
 
     dispatch({
@@ -37,28 +37,29 @@ Cart.List = function CartList({ profile, ...restProps }) {
   )
 };
 
-Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, ...restProps }) {
+Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, actions, ...restProps }) {
   const dispatch = useDispatch();
   function onAddDough(item) {
+
     dispatch({
-      type: 'USER_DOUGH_ADD_TO_CART',
+      type: actions,
       payload: item
     });
   }
 
   return (
     profile?.map((item) => (
-      <DoughAndIngredients  key = { item.id } onClick = { () => { onAddDough(item) } } {...restProps}>
+      <DoughAndIngredients key = { item.id } onClick = { () => { onAddDough(item) } } {...restProps}>
         <Image src = { item.imageUrl } />
         <Text>
-          { item.text }
+          { item.name }
         </Text>
         <Info>
           <Cal>
-            { item.cal }
+            cal { item.cal }
           </Cal>
           <Price>
-            { item.price }
+            $ { item.price }
           </Price>
         </Info>
       </DoughAndIngredients>
@@ -66,19 +67,79 @@ Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, ...restPr
   )
 };
 
+Cart.IngredientEmptyItem = function CartIngredientEmptyItem({ ingredients, ingredientsCount, ...restProps }) {
+  // console.log('IngredientEmptyItem ',ingredients, ingredientsCount)
+  let countItem = ingredientsCount ? ingredients?.length - ingredientsCount?.length : ingredients?.length
+  // console.log('countItem ',countItem);
+  return (
+    <>
+      {countItem && Array(countItem).fill().map((el, id) => (
+        <IngredientItem key = {id}>
+          {el}
+        </IngredientItem>
+      ))}
+    </>
+  )
+};
+Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restProps }) {
+  // console.log('ingredientsCount ',ingredientsCount)
+  const [...filterIngridients] = ingredientsCount.filter(item => item !== ingredientsCount[ingredientsCount.length - 1])
+
+  // console.log('filterIngridients ',filterIngridients)
+  // const [...Ingridients] = Object.keys(filterIngridients).map((key) => {
+  //   return filterIngridients[key].items[0];
+  // });
+
+  const [...Ingridients] = [...Object.keys(filterIngridients).map((key) => {
+    return filterIngridients[key].items[0];
+  })]
+  // console.log('t ',Ingridients);
+  return (
+    <>
+     {Ingridients?.map(({ id, name, imageUrl, cal, price}) => (
+        <IngredientItem key = {id}>
+          <IngredientWrapp>
+            <Image src = {imageUrl} />
+            <Price {...restProps}>
+               $ { price }
+            </Price>
+          </IngredientWrapp>
+        </IngredientItem>
+      ))}
+    </>
+  )
+};
+Cart.Ing = function CartListIng({ children, ...restProps }) {
+  const ingredients = useSelector(({ ingredients }) => ingredients.items.ing)
+  const { items } = useSelector(({ ingredients }) => ingredients)
+  let ingredientsCount = [...Object.values(items)]
+  // console.log('Cart.Ing', ingredientsCount, ingredients);
+  return (
+      <>
+      {
+        !ingredientsCount ? (<>loading..</>) : (
+          <>
+            <Cart.IngredientItem ingredientsCount = {ingredientsCount} />
+            <Cart.IngredientEmptyItem ingredients = {ingredients} ingredientsCount = {ingredientsCount}/>
+          </>
+        )
+      }
+      </>
+  );
+};
 Cart.Scale = function CartScale({ profile, ...restProps }) {
-  // console.log('Scale ', profile);
   return (
     profile?.map((item) => (
       <Scale key = { item.id } {...restProps}>
         <Image src = { item.imageUrl } />
         <Size {...restProps}>
-          { item.size }
+          { item.size || item.text }
         </Size>
       </Scale>
     ))
   )
 };
+
 Cart.Ingredient = function CartIngredients({ children, ...restProps }) {
   return <Ingredient {...restProps}>{children}</Ingredient>;
 };
@@ -104,9 +165,6 @@ Cart.Dough = function CartDough({ children, ...restProps }) {
 };
 Cart.WrapperElement = function CartWrapperElement({ children, ...restProps }) {
   return <WrapperElement {...restProps}>{children}</WrapperElement>;
-};
-Cart.Ing = function CartListIng({ children, ...restProps }) {
-  return <Ing {...restProps}>{children}</Ing>;
 };
 
 Cart.WrapperIng = function CartWrapperIng({ children, ...restProps }) {

@@ -1,0 +1,35 @@
+include ../cart/cart
+
+
+mixin popup__video()
+	.popup.popup__video
+		.popup__content--video
+			.popup__body--video
+				.popup__close.popup__close_video
+				.popup__video._video
+mixin popup__cart
+	.popup__cart
+		.popup__overlay-close
+		.popup__content--cart
+			+cart__popup()
+			.popup__body--cart
+				.popup__main
+					include ../right-sidebar/right-sidebar
+					.popup__main--wrapper
+						.popup__header
+							a.popup__close.popup__close_cart(href='#')
+						.popup__main--elem
+							.popup__elem--img
+								a(href="#"): img(src=require("@images/png/400x400/product-img-1.png"))
+							.popup__elem--desc
+								h3.header__title margarita
+								p.header__subtitle  It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+								.popup__elem--sale
+									.popup__sale--item
+										.popup__sale--size sm
+										.popup__sale--cost $52.2
+									.popup__sale
+										<button class="button-count no-active" disabled="">-</button>
+										<input type="text" readonly="" class="number-product" value="1">
+										<button class="button-count">+</button>
+				.popup__footer

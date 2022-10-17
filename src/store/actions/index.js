@@ -6,6 +6,7 @@ export const USER_DOUGH_FETCH_SUCCEEDED = 'USER_DOUGH_FETCH_SUCCEEDED'
 
 export const USER_PIZZA_ADD_TO_CART = 'USER_PIZZA_ADD_TO_CART'
 export const USER_DOUGH_ADD_TO_CART = 'USER_DOUGH_ADD_TO_CART'
+export const USER_ING_ADD_TO_CART = 'USER_ING_ADD_TO_CART'
 
 export const USER_INGRIDIENTS_FETCH_SUCCEEDED = 'USER_INGRIDIENTS_FETCH_SUCCEEDED'
 export const USER_INGRIDIENTS_FETCH_REQUESTED = 'USER_INGRIDIENTS_FETCH_REQUESTED'
@@ -37,7 +38,7 @@ export function getDoughRequest() {
 export function getIngridientsSuccess(ing) {
   return {
     type: USER_INGRIDIENTS_FETCH_SUCCEEDED,
-    payload: ing
+    payload: { ing }
   }
 }
 

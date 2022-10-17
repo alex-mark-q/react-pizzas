@@ -11,9 +11,6 @@ export default function Home() {
   	<>
     	<Main />
       {/*<SideBarContainer />*/}
-      <Pane.CPane>
-        <Ingredients />
-      </Pane.CPane>
   	</>
   )
 }

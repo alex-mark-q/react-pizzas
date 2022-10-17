@@ -2,7 +2,6 @@ import React from 'react'
 import { Panel } from '../components'
 
 export function Hero({ resultRef }) {
-  console.log('Hero.js ', resultRef);
 
   const onScroll = (e) => {
     e.preventDefault();

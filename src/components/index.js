@@ -10,3 +10,4 @@ export { default as Logo } from './Logo/Logo';
 export { default as NavBar } from './NavBar/NavBar';
 export { default as Ingredients } from './Ingredients/Ingredients';
 export { default as Order } from './Order/Order';
+export { default as InputName } from './Input/Input';

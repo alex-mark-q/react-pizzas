@@ -3,13 +3,18 @@ import styled from 'styled-components/macro';
 export const Container = styled.div`
   margin-bottom: 70px;
   display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: self-start;
+  justify-content: space-between;
+  height: 50vh;
 `
 export const List = styled.div`
   border-radius: 10px;
   text-align: center;
-  width: 180px;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
   height: 180px;
   display: flex;
   flex-direction: column;
@@ -21,7 +26,9 @@ export const Block = styled.div`
 	display: flex;
 	flex-direction: row;
 	gap: 35px;
-  flex-wrap: nowrap
+  flex-wrap: nowrap;
+  height: 100%;
+  align-items: center;
 `
 export const Size = styled.div`
 	margin-top: 15px;
@@ -39,6 +46,7 @@ export const Title = styled.div`
 export const Cal = styled.span`
 `
 export const Price = styled.span`
+  margin-left: 15px;
 `
 export const Info = styled.div`
 `
@@ -53,21 +61,27 @@ export const Ingredient = styled.div`
 `
 export const Hero = styled.div`
   display: flex;
-  gap: 35px;
-  width: 400px;
+  gap: 20px;
+  width: 100%;
   justify-content: center;
+  flex-wrap: wrap;
 `
 
 export const DoughAndIngredients = styled.div`
   border-radius: 10px;
   text-align: center;
-  width: 180px;
-  height: 180px;
+  width: 110px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer
+  cursor: pointer;
+  gap: 5px;
+  img {
+    height: 75px;
+    width: 75px;
+  }
 `
 
 export const Dough = styled.div`
@@ -81,7 +95,7 @@ export const Scale = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  // border-radius: ${({ theme }) => theme.border.radius};
   text-align: center;
 `
 export const WrapperElement = styled.div`
@@ -92,10 +106,10 @@ export const WrapperElement = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #212428;
-  border-radius: 10px;
+  // border-radius: ${({ theme }) => theme.border.radius};
 `
 
-export const Ing = styled.div`
+export const IngredientItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -103,7 +117,7 @@ export const Ing = styled.div`
   width: 180px;
   height: 60px;
   background-color: #212428;
-    border-radius: 10px;
+  // border-radius: ${({ theme }) => theme.border.radius};
 `
 export const WrapperIng = styled.div`
   display: flex;
@@ -115,4 +129,21 @@ export const WrapperIng = styled.div`
   flex-wrap: wrap;
   width: inherit;
   width: 400px;
+`
+export const IngredientEmptyItem = styled.div`
+`
+export const IngredientWrapp = styled.div`
+  background-color: #fff;
+  width: 180px;
+  height: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  // border-radius: ${({ theme }) => theme.border.radius};
+  text-align: center;
+  img {
+    width: 65px;
+    height: 65px
+  }
 `

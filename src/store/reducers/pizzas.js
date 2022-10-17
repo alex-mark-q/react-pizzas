@@ -7,13 +7,15 @@ import {
 
 const initState = {
   items: [],
-  isFetching: false
+  isFetching: false,
+  totalPrice: 0,
+  totalCal: 0,
+  totalGram: 0
 }
 
 export const product = (state = initState, action) => {
   switch (action.type) {
     case USER_PIZZA_FETCH_SUCCEEDED: {
-      const pizza = action.payload.pizza
       return {
         ...state,
         items: action.payload,
@@ -26,18 +28,14 @@ export const product = (state = initState, action) => {
         ...state.items,
         size: [currentPizzaItems]
       }
+      const totalPrice = currentPizzaItems.price
+      const totalCal = currentPizzaItems.cal
+      const totalGram = currentPizzaItems.gram
       return {
-        items: newItems
-      }
-    }
-    case USER_DOUGH_ADD_TO_CART: {
-      const currentDoughItems = action.payload
-      const newItems = {
-        ...state.items,
-        dough: [currentDoughItems]
-      }
-      return {
-        items: newItems
+        items: newItems,
+        totalPrice,
+        totalCal,
+        totalGram
       }
     }
     default:

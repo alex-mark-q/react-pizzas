@@ -1,38 +1,37 @@
 import styled from 'styled-components/macro';
 
 export const Container = styled.div`
-	width: calc(100% - 1.875rem);
+	// width: calc(100% - 1.875rem);
 `
 export const Content = styled.div`
 	flex-flow: column;
 	display: flex;
 	justify-content: center;
+	flex-direction: row;
 `
 export const Layout = styled.div`
 	display: flex;
-	flex-direction: row;
-	height: 100vh;
+	flex-direction: column;
+	// height: ${({ theme }) => theme.elements.height};
+	// width: calc(50% - 1.875rem);
+	width: 100%
 `
 export const Services = styled.div`
+	display: flex;
 	background: ${({ src }) => (src ? `url(/images/png/${src}.jpg)` : '#191c21')};
 	background-size: cover;
 	background-repeat: no-repeat;
-	display: flex;
-	width: calc(100% - 1.875rem);
-	flex: 3;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	// height: 100vh;
+	width: 700px;
 `
 export const Boarding = styled.div`
-	flex: 5;
 	display: flex;
 	align-items: center;
-	width: calc(100% - 1.875rem);
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
+	position: relative;
 	justify-content: center;
 	flex-direction: column;
+	height: 100%;
+	width: 700px;
 `
 
 export const Present = styled.div`
@@ -43,4 +42,21 @@ export const Present = styled.div`
 	height: 100vh;
 	gap: 25px;
 `
-
+export const Col = styled.div`
+	// width: 800px;
+`
+export const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	// width: calc(60% - 1.875rem);
+`
+export const Constructor = styled.div`
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	// background: ${({ theme }) => theme.elements.backgroundColor};
+`

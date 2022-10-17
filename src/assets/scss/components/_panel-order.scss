@@ -1,0 +1,118 @@
+.panel {
+	display: flex;
+	flex-direction: column;
+	&__hero {
+		display: flex;
+		flex-direction: row;
+		@include size(12);
+	}
+	&__slider--img, &__description, &__arrow {
+		display: flex;
+	}
+	&__slider--img {
+		flex: 0 1 30%;
+	}
+	&__slider--img img {
+		width: 150px;
+		height: 150px;
+	}
+	&__top {
+		display: flex;
+		flex-direction: column
+	}
+	&__ingridients {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		@include size(4);
+		height: 20rem;
+	}
+	&__wrapper {
+		display: flex;
+	}
+	&__down {
+		display: flex;
+		padding: 8rem 0rem 5rem 0rem;
+		@include shift-left(-1);
+	}
+	&__cart {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		line-height: 100px;
+	}
+	&__slider {
+		display: flex;
+		width: 500px
+	}
+	&__description {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 0 1 50%;
+	}
+	&__arrow {
+		display: flex;
+	  align-items: center;
+	  flex: 0 1 5%;
+	}
+}
+.popular__menu {
+	margin: 0;
+	padding: 0;
+	display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 20rem;
+}
+.popular__menu-link svg {
+	width: 25px;
+	height: 25px;
+}
+.cost__menu {
+	display: flex;
+
+	padding: 0;
+}
+.header__title {
+	font-family: 'GillSansCondC';
+    font-size: 24px;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.header__subtitle {
+	font-family: 'GillSansC';
+	color: #767676;
+	margin: 25px 0
+}
+
+
+.hero__description {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.header__mini {
+	font-family: 'GillSansLightC';
+    color: #767676;	
+    font-size: 14px
+}
+
+.info {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    flex: 0 0 50%;
+}
+.pizza__title {
+	line-height: 35px;
+}
+.l-cost__menu-item {
+	font-family: 'GillSansC';
+}
+.l-cost__menu-item:not(:last-child) {
+	margin-right: 25px;
+}

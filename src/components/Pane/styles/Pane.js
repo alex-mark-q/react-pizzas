@@ -13,13 +13,14 @@ export const CPane = styled.div`
 	overflow: visible;
 	user-select: text;
 	flex-direction: row;
+	width: calc(50% - 1.875rem);
 `
 export const Contents = styled.div`
-	width: calc(94% - 1.875rem);
+	width: ${({ theme }) => `calc( (100% / ${theme.columns} * 11) - ${theme.variables.offsets.desktop}rem)` } ;
 `
 export const SideBarWrapper = styled.div`
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 7.33333%;
+	position: fixed;
+	right: 0;
 	flex: 0 0 7.33333%;
 	width: calc(7.33333% - 1.875rem);
 `

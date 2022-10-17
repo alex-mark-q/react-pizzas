@@ -9,10 +9,10 @@ export const Container = styled.div`
 export const Hero = styled.div`
 	display: flex;
 	flex-direction: row;
-	width: calc(53.66667% - 1.875rem);
 	flex-direction: column;
-    height: 100vh;
-    justify-content: center;
+	height: 100vh;
+	justify-content: center;
+	width: 30vw;
 `
 export const Description = styled.div`
 	position: relative;

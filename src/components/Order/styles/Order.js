@@ -10,13 +10,30 @@ export const Container = styled.div`
 `
 export const Info = styled.div`
 	display: grid;
-		grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 `
 
-export const Calories = styled.div``
+export const Calories = styled.div`
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+	font-size: 32px
+`
 
-export const Gramms = styled.div``
+export const Gramms = styled.div`
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+	font-size: 32px
+`
 
-export const Title = styled.div``
+export const Title = styled.div`
+	font-size: 26px
+`
 
-export const Price = styled.div``
+export const Price = styled.div`
+	text-align: right;
+	display: flex;
+	flex-direction: column;
+	font-size: 32px
+`

@@ -1,0 +1,18 @@
+$grid-breakpoints: (
+  'xsmall': 320px,
+  'extra':  480px,
+  'small':  768px,
+  'medium': 992px,
+  'large':  1300px,
+  'mlarge':  1400px,
+  'xlarge':  1500px,
+  'xxlarge': 1800px
+);
+
+$color-main: #1D1D1F;
+$font: "Inter", sans-serif;
+
+$bg-main: #F0971E;
+$bg-order: #F5F5F5;
+$white: #FFFFFF;
+$gray: #484848;
