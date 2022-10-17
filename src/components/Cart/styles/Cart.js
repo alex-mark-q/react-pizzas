@@ -95,7 +95,7 @@ export const Scale = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border-radius: ${({ theme }) => theme.border.radius};
+  border-radius: ${({ theme }) => theme.border.radius};
   text-align: center;
 `
 export const WrapperElement = styled.div`
@@ -106,7 +106,7 @@ export const WrapperElement = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #212428;
-  // border-radius: ${({ theme }) => theme.border.radius};
+  border-radius: ${({ theme }) => theme.border.radius};
 `
 
 export const IngredientItem = styled.div`
@@ -117,7 +117,7 @@ export const IngredientItem = styled.div`
   width: 180px;
   height: 60px;
   background-color: #212428;
-  // border-radius: ${({ theme }) => theme.border.radius};
+  border-radius: ${({ theme }) => theme.border.radius};
 `
 export const WrapperIng = styled.div`
   display: flex;
@@ -140,7 +140,7 @@ export const IngredientWrapp = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  // border-radius: ${({ theme }) => theme.border.radius};
+  border-radius: ${({ theme }) => theme.border.radius};
   text-align: center;
   img {
     width: 65px;

@@ -62,7 +62,7 @@ export function Pizza() {
                   <span>
                     { 
                       [dough.totalCal, product.totalCal, ingredients.totalCal].reduce((sum, price) => {
-                        return sum + price;
+                        return parseFloat(sum + price);
                       }, 0)
                     }
                    </span>
@@ -72,7 +72,7 @@ export function Pizza() {
                   <span>
                     { 
                       [dough.totalGram, product.totalGram, ingredients.totalGram].reduce((sum, price) => {
-                        return sum + price;
+                        return parseFloat(sum + price);
                       }, 0)
                     }
                   </span>
@@ -83,7 +83,7 @@ export function Pizza() {
                 <span>
                   { 
                     [dough.totalPrice, product.totalPrice, ingredients.totalPrice].reduce((sum, price) => {
-                      return sum + price;
+                      return parseFloat(sum + price);
                     }, 0)
                   }
                  </span>

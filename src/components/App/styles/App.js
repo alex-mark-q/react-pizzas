@@ -12,7 +12,7 @@ export const Content = styled.div`
 export const Layout = styled.div`
 	display: flex;
 	flex-direction: column;
-	// height: ${({ theme }) => theme.elements.height};
+	height: ${({ theme }) => theme.elements.height};
 	// width: calc(50% - 1.875rem);
 	width: 100%
 `
@@ -58,5 +58,5 @@ export const Constructor = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	// background: ${({ theme }) => theme.elements.backgroundColor};
+	background: ${({ theme }) => theme.elements.backgroundColor};
 `

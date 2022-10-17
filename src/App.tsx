@@ -17,16 +17,3 @@ export default function App() {
     </StyledThemeProvider>
   )
 }
-
-// const List = ({ ingredientsCount, ingredients }) => {
-//   const renderedList = useMemo(
-//       () => ([
-//           ...ingredients.map(({ id, value}) => <IngredientItem key={ ingredients[i].id } value={ ingredients[i].value }/>),
-//           ...[...Array(ingredientsCount - ingredients.length)].map((x, i) => <EmptyItem key={i} />)
-//       ]),
-//       [ingredientsCount, ingredients]
-//   )
-//   return (
-//       <>{ renderedList }</>
-//   );
-// }
