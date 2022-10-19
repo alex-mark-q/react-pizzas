@@ -1,4 +1,4 @@
-import { USER_INGRIDIENTS_FETCH_SUCCEEDED, USER_ING_ADD_TO_CART } from '../actions'
+import { USER_INGRIDIENTS_FETCH_SUCCEEDED, USER_ING_ADD_TO_CART, USER_ING_REMOVE_CART_ITEM } from '../actions'
 import { getTotalSum } from '../../helpers/sum'
 
 const initState = {
@@ -18,7 +18,6 @@ export const ingredients = (state = initState, action) => {
       };
     }
     case USER_ING_ADD_TO_CART: {
-
       const currentPizzaItems = !state.items[action.payload.id]
         ? [action.payload]
         : [...state.items[action.payload.id].items, action.payload];
@@ -40,6 +39,19 @@ export const ingredients = (state = initState, action) => {
         totalCal,
         totalGram
       }
+    }
+    case USER_ING_REMOVE_CART_ITEM: {
+      const newItems = {
+        ...state.items,
+      };
+      const totalPrice = newItems[action.payload];
+      console.log('remove ', action.payload);
+      delete newItems[action.payload];
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: state.totalPrice - totalPrice,
+      };
     }
     default:
       return state;

@@ -5,6 +5,7 @@ import { USER_DOUGH_ADD_TO_CART as actions } from '../store/actions'
 
 export function PanelOrder({ resultRef }) {
 	const pizzas = useSelector(({ product }) => product.items.pizzas)
+	
 	const dough = useSelector(({ dough }) => dough.items.dough)
 
 	const onScroll = (e) => {

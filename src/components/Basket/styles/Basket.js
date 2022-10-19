@@ -35,14 +35,12 @@ export const Count = styled.div`
 	color: #fff;
 	left: 50%;
 	margin-right: -50%;
-	-webkit-transform: translate(90%, 10%);
 	transform: translate(90%, 10%);
 `
 export const Link = styled.a`
 	cursor: pointer;
 	text-decoration: none;
 	outline: 0;
-	-ms-touch-action: manipulation;
 	touch-action: manipulation;
 `
 export const Image = styled.div`

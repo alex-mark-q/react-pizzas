@@ -3,17 +3,26 @@
     {
       "id": 0,
       "imageUrl": "/images/svg/constructor-pizza.svg",
-      "size": "12''30 cm"
+      "size": "12''30 cm",
+      "cal": 80,
+      "price": 1.3,
+      "gram": 500
     },
     {
       "id": 1,
       "imageUrl": "/images/svg/constructor-pizza.svg",
-      "size": "14''35 cm"
+      "size": "14''35 cm",
+      "cal": 80,
+      "price": 2.3,
+      "gram": 600
     },
     {
       "id": 2,
       "imageUrl": "/images/svg/constructor-pizza.svg",
-      "size": "16''40 cm"
+      "size": "16''40 cm",
+      "cal": 80,
+      "price": 3.3,
+      "gram": 700
     }
   ],
   "dough": [
@@ -21,15 +30,17 @@
       "id": 3,
       "imageUrl": "/images/svg/pizza-thin.svg",
       "text": "Thin dough",
-      "cal": "80",
-      "price": "0.3"
+      "cal": 80,
+      "price": 0.3,
+      "gram": 400
     },
     {
       "id": 4,
       "imageUrl": "/images/svg/pizza-thin.svg",
       "text": "Thick dough",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 0.3,
+      "gram": 500
     }
   ],
   "ingredients": [
@@ -37,71 +48,81 @@
       "id": 5,
       "imageUrl": "/images/png/product-1-600x500.png",
       "name": "olives",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 6,
       "imageUrl": "/images/png/product-2-600x500.png",
       "name": "tomato",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 7,
       "imageUrl": "/images/png/product-3-600x500.png",
       "name": "chili",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 8,
       "imageUrl": "/images/png/product-4-600x500.png",
       "name": "onion",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 9,
       "imageUrl": "/images/png/product-5-600x500.png",
       "name": "pinapple",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 10,
       "imageUrl": "/images/png/product-6-600x500.png",
       "name": "mushrooms",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 11,
       "imageUrl": "/images/png/product-7-600x500.png",
       "name": "chili",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 12,
       "imageUrl": "/images/png/product-2-600x500.png",
       "name": "pepper",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 13,
       "imageUrl": "/images/png/product-1-600x500.png",
       "name": "cheese",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     },
     {
       "id": 14,
       "imageUrl": "/images/png/product-5-600x500.png",
       "name": "bacon",
-      "cal": "100",
-      "price": "0.3"
+      "cal": 100,
+      "price": 1,
+      "gram": 1
     }
   ]
 }

@@ -16,10 +16,7 @@ export function Pizza() {
   const totalPriceDough = useSelector(( state ) => state.dough.totalPrice)
 
   const { dough, product,ingredients } = useSelector((state) => state);
-  // console.log(mystate, itemDough[0])
-  const filter = (obj) => {
-    return obj.map(o => o.name === 'string 1');
-  }
+
   return (
     <>
       <App.RefLayout>

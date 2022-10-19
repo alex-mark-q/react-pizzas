@@ -34,6 +34,12 @@ App.RefLayout = function AppRefLayout({ children, ...restProps }) {
     return <Constructor ref={ref} {...props} />;
   });
 
+  function addMultipleEventListener(element, events, handler) {
+    events.forEach(e => element.addEventListener(e, handler))
+  }
+  function removeMultipleEventListener(element, events, handler) {
+    events.forEach(e => element.removeEventListener(e, handler))
+  }
 
   useLayoutEffect(() => {
     const divAnimate = fixedRef.current.getBoundingClientRect().top;
@@ -43,20 +49,19 @@ App.RefLayout = function AppRefLayout({ children, ...restProps }) {
         fixedRef.current.style.top = 0;
         fixedRef.current.style.marginLeft = 'auto';
         fixedRef.current.style.marginRight = 'auto';
-        fixedRef.current.style.height = '100%';
+        fixedRef.current.style.height = '100vh';
         fixedRef.current.style.width = '700px';
-        // fixedRef.current.style.minWidth = '60%';
         fixedRef.current.style.bottom = 0;
       } else {
-        fixedRef.current.style.position = "absolute";
+        fixedRef.current.style.position = "relative";
         fixedRef.current.style.width = '700px';
-        fixedRef.current.style.height = '100%';
+        fixedRef.current.style.height = '100vh';
         fixedRef.current.style.top = 0;
         fixedRef.current.style.bottom = 0;
       }
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    addMultipleEventListener(window,['scroll', 'click'], onScroll)
+    return () => removeMultipleEventListener(['scroll', 'click'], onScroll);
   }, []);
 
   return (

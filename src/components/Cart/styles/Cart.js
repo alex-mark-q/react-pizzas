@@ -57,7 +57,6 @@ export const Ingredient = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
 `
 export const Hero = styled.div`
   display: flex;
@@ -110,6 +109,7 @@ export const WrapperElement = styled.div`
 `
 
 export const IngredientItem = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -143,7 +143,50 @@ export const IngredientWrapp = styled.div`
   border-radius: ${({ theme }) => theme.border.radius};
   text-align: center;
   img {
-    width: 65px;
-    height: 65px
+    width: 60px;
+    height: 55px;
+  }
+`
+export const IngredientItemClose = styled.div `
+  cursor: pointer;
+  background: #E53934;
+  position: absolute;
+  z-index: 2;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 20px;
+  flex: 0 0 20px;
+  height: 27px;
+  width: 27px;
+  font-size: .70rem;
+  top: -8px;
+  border-radius: 100%;
+  font-weight: 900;
+  line-height: 155%;
+  text-align: center;
+  color: #fff;
+  right: 12px;
+  transform: translate(90%, 10%);
+`
+export const Link = styled.a`
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 0;
+  touch-action: manipulation;
+  :before, :after {
+    position: absolute;
+    top: 4px;
+    left: 13px;
+    content: ' ';
+    height: 18px;
+    width: 2px;
+    background-color: #333;
+  }
+  :before {
+    transform: rotate(45deg);
+  }
+  :after {
+    transform: rotate(-45deg);
   }
 `

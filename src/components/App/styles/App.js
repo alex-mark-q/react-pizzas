@@ -30,7 +30,6 @@ export const Boarding = styled.div`
 	position: relative;
 	justify-content: center;
 	flex-direction: column;
-	height: 100%;
 	width: 700px;
 `
 
@@ -57,6 +56,13 @@ export const Constructor = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 	background: ${({ theme }) => theme.elements.backgroundColor};
+	position: sticky;
+	top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	width: 700px;
+	bottom: 0px;
 `

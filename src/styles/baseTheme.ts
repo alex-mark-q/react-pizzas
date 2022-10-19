@@ -9,7 +9,7 @@ const screens = {
   desktopWidth: 1600,
 
   // Height
-  desktopHeight: '100vh',
+  desktopHeight: '100',
 };
 const basicOffset = 1.875;
 const color = {

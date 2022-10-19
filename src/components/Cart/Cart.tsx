@@ -1,35 +1,44 @@
-import React, { useState, useMemo } from 'react'
-import { IngredientWrapp, IngredientEmptyItem, WrapperIng, Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement, IngredientItem } from './styles/Cart'
+import React, { useState, useMemo, ReactNode } from 'react'
+import { Link, IngredientItemClose, IngredientWrapp, IngredientEmptyItem, WrapperIng, Container, List, Block, Size, Image, Title, Price, Info, Cal, Text, Ingredient, Hero, DoughAndIngredients, Dough, Scale, WrapperElement, IngredientItem } from './styles/Cart'
 import { useSelector, useDispatch } from 'react-redux'
+import { USER_ING_REMOVE_CART_ITEM as actionRemove } from '../../store/actions'
 
-export default function Cart ({  children,  ...restProps }) {
+interface Props {
+  children?: ReactNode
+}
+export interface CartListProps {
+  id: number;
+  size: string;
+  price: number;
+  gram: number;
+  cal: number;
+  imageUrl: string;
+  text: string;
+}
+
+export default function Cart ({  children,  ...restProps }: Props) {
   return <Container { ...restProps }> {children} </Container>;
 }
-Cart.Title = function CartTitle({ children, ...restProps }) {
+Cart.Title = function CartTitle({ children, ...restProps }: Props) {
   return <Title {...restProps}>{children}</Title>;
 };
-Cart.Block = function CartBlock({ children, ...restProps }) {
+Cart.Block = function CartBlock({ children, ...restProps }: Props) {
   return <Block {...restProps}>{children}</Block>;
 };
 
-Cart.List = function CartList({ profile, ...restProps }) {
+Cart.List = function CartList({ profile }) {
   const dispatch = useDispatch();
-  const [colorChange, setColorChange] = useState('white');
   function onAddPizzaSize(item) {
-
-    // console.log('size id ', item.id)
-    setColorChange((ctr) => ( { ...ctr, [item.id]: (ctr[item.id] === "blue" ? "white" : "blue") }))
-
     dispatch({
       type: 'USER_PIZZA_ADD_TO_CART',
       payload: item
     });
   }
   return (
-    profile?.map((item) => (
-      <List className = { colorChange } key = { item.id } onClick = { () => { onAddPizzaSize(item) } } {...restProps} >
+    (profile as unknown as CartListProps[])?.map((item) => (
+      <List key = { item.id } onClick = {() => { onAddPizzaSize(item) }} >
         <Image src = { item.imageUrl } />
-        <Size {...restProps}>
+        <Size>
           { item.size }
         </Size>
       </List>
@@ -40,7 +49,6 @@ Cart.List = function CartList({ profile, ...restProps }) {
 Cart.DoughAndIngredients = function CartDoughAndIngredients({ profile, actions, ...restProps }) {
   const dispatch = useDispatch();
   function onAddDough(item) {
-
     dispatch({
       type: actions,
       payload: item
@@ -73,7 +81,7 @@ Cart.IngredientEmptyItem = function CartIngredientEmptyItem({ ingredients, ingre
   // console.log('countItem ',countItem);
   return (
     <>
-      {countItem && Array(countItem).fill().map((el, id) => (
+      {countItem && Array(countItem).fill(undefined).map((el, id) => (
         <IngredientItem key = {id}>
           {el}
         </IngredientItem>
@@ -83,6 +91,7 @@ Cart.IngredientEmptyItem = function CartIngredientEmptyItem({ ingredients, ingre
 };
 Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restProps }) {
   // console.log('ingredientsCount ',ingredientsCount)
+  const dispatch = useDispatch();
   const [...filterIngridients] = ingredientsCount.filter(item => item !== ingredientsCount[ingredientsCount.length - 1])
 
   // console.log('filterIngridients ',filterIngridients)
@@ -94,6 +103,13 @@ Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restPro
     return filterIngridients[key].items[0];
   })]
   // console.log('t ',Ingridients);
+  const onRemoveItem = (id) => {
+    console.log('remove click');
+    dispatch({
+      type: actionRemove,
+      payload: id
+    });
+  };
   return (
     <>
      {Ingridients?.map(({ id, name, imageUrl, cal, price}) => (
@@ -101,17 +117,27 @@ Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restPro
           <IngredientWrapp>
             <Image src = {imageUrl} />
             <Price {...restProps}>
-               $ { price }
+              $ { price }
             </Price>
           </IngredientWrapp>
+          <Cart.IngredientItemClose onRemoveItem = {onRemoveItem} />
         </IngredientItem>
       ))}
     </>
   )
 };
-Cart.Ing = function CartListIng({ children, ...restProps }) {
-  const ingredients = useSelector(({ ingredients }) => ingredients.items.ing)
-  const { items } = useSelector(({ ingredients }) => ingredients)
+Cart.IngredientItemClose = function CartItemClose({onRemoveItem, ...restProps }) {
+  return (
+    <IngredientItemClose>
+      <Link onClick = {onRemoveItem} />
+    </IngredientItemClose>
+  )
+}
+
+
+Cart.Ing = function CartListIng({ children }: Props) {
+  const ingredients = useSelector(({ ingredients }: any) => ingredients.items.ing)
+  const { items } = useSelector(({ ingredients }: any) => ingredients)
   let ingredientsCount = [...Object.values(items)]
   // console.log('Cart.Ing', ingredientsCount, ingredients);
   return (
@@ -129,7 +155,7 @@ Cart.Ing = function CartListIng({ children, ...restProps }) {
 };
 Cart.Scale = function CartScale({ profile, ...restProps }) {
   return (
-    profile?.map((item) => (
+    (profile as unknown as CartListProps[])?.map((item) => (
       <Scale key = { item.id } {...restProps}>
         <Image src = { item.imageUrl } />
         <Size {...restProps}>
@@ -140,33 +166,33 @@ Cart.Scale = function CartScale({ profile, ...restProps }) {
   )
 };
 
-Cart.Ingredient = function CartIngredients({ children, ...restProps }) {
+Cart.Ingredient = function CartIngredients({ children, ...restProps }: Props) {
   return <Ingredient {...restProps}>{children}</Ingredient>;
 };
 
-Cart.Info = function CartInfo({ children, ...restProps }) {
+Cart.Info = function CartInfo({ children, ...restProps }: Props) {
   return <Info {...restProps}>{children}</Info>;
 };
-Cart.Cal = function CartCal({ children, ...restProps }) {
+Cart.Cal = function CartCal({ children, ...restProps }: Props) {
   return <Cal {...restProps}>{children}</Cal>;
 };
-Cart.Price = function CartPrice({ children, ...restProps }) {
+Cart.Price = function CartPrice({ children, ...restProps }: Props) {
   return <Price {...restProps}>{children}</Price>;
 };
-Cart.Text = function CartText({ children, ...restProps }) {
+Cart.Text = function CartText({ children, ...restProps }: Props) {
   return <Text {...restProps}>{children}</Text>;
 };
 
-Cart.Hero = function CartHero({ children, ...restProps }) {
+Cart.Hero = function CartHero({ children, ...restProps }: Props) {
   return <Hero {...restProps}>{children}</Hero>;
 };
-Cart.Dough = function CartDough({ children, ...restProps }) {
+Cart.Dough = function CartDough({ children, ...restProps }: Props) {
   return <Dough {...restProps}>{children}</Dough>;
 };
-Cart.WrapperElement = function CartWrapperElement({ children, ...restProps }) {
+Cart.WrapperElement = function CartWrapperElement({ children, ...restProps }: Props) {
   return <WrapperElement {...restProps}>{children}</WrapperElement>;
 };
 
-Cart.WrapperIng = function CartWrapperIng({ children, ...restProps }) {
+Cart.WrapperIng = function CartWrapperIng({ children, ...restProps }: Props) {
   return <WrapperIng {...restProps}>{children}</WrapperIng>;
 };
