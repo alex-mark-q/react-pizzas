@@ -44,13 +44,17 @@ export const ingredients = (state = initState, action) => {
       const newItems = {
         ...state.items,
       };
-      const totalPrice = newItems[action.payload];
-      console.log('remove ', action.payload);
+      const currentTotalPrice = newItems[action.payload].items[0].price;
+      const currentTotalCal = newItems[action.payload].items[0].cal;
+      const currentTotalGram = newItems[action.payload].items[0].gram;
+      // console.log('remove ', newItems[action.payload], 'currentTotalPrice', currentTotalPrice);
       delete newItems[action.payload];
       return {
         ...state,
         items: newItems,
-        totalPrice: state.totalPrice - totalPrice,
+        totalPrice: state.totalPrice - currentTotalPrice,
+        totalCal: state.totalCal - currentTotalCal,
+        totalGram: state.totalGram - currentTotalGram,
       };
     }
     default:

@@ -91,7 +91,7 @@ Cart.IngredientEmptyItem = function CartIngredientEmptyItem({ ingredients, ingre
 };
 Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restProps }) {
   // console.log('ingredientsCount ',ingredientsCount)
-  const dispatch = useDispatch();
+
   const [...filterIngridients] = ingredientsCount.filter(item => item !== ingredientsCount[ingredientsCount.length - 1])
 
   // console.log('filterIngridients ',filterIngridients)
@@ -103,13 +103,7 @@ Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restPro
     return filterIngridients[key].items[0];
   })]
   // console.log('t ',Ingridients);
-  const onRemoveItem = (id) => {
-    console.log('remove click');
-    dispatch({
-      type: actionRemove,
-      payload: id
-    });
-  };
+
   return (
     <>
      {Ingridients?.map(({ id, name, imageUrl, cal, price}) => (
@@ -120,13 +114,22 @@ Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restPro
               $ { price }
             </Price>
           </IngredientWrapp>
-          <Cart.IngredientItemClose onRemoveItem = {onRemoveItem} />
+          <Cart.IngredientItemClose id = {id} />
         </IngredientItem>
       ))}
     </>
   )
 };
-Cart.IngredientItemClose = function CartItemClose({onRemoveItem, ...restProps }) {
+Cart.IngredientItemClose = function CartItemClose({ id, ...restProps }) {
+  const dispatch = useDispatch();
+  console.log('id IngredientItemClose ', id);
+  const onRemoveItem = () => {
+    console.log('remove click', id);
+    dispatch({
+      type: actionRemove,
+      payload: id
+    });
+  };
   return (
     <IngredientItemClose>
       <Link onClick = {onRemoveItem} />
