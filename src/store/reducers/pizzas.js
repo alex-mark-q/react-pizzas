@@ -4,16 +4,17 @@ import {
   USER_PIZZA_ADD_TO_CART,
   USER_DOUGH_ADD_TO_CART
 } from '../actions'
+import { InitialStateType } from './initStateType'
 
-const initState = {
-  items: [],
+const initState: InitialStateType = {
+  items: {},
   isFetching: false,
   totalPrice: 0,
   totalCal: 0,
   totalGram: 0
 }
 
-export const product = (state = initState, action) => {
+export const product = (state = initState, action: any): InitialStateType => {
   switch (action.type) {
     case USER_PIZZA_FETCH_SUCCEEDED: {
       return {

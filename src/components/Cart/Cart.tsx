@@ -122,7 +122,7 @@ Cart.IngredientItem = function CartIngredientItem({ ingredientsCount, ...restPro
 };
 Cart.IngredientItemClose = function CartItemClose({ id, ...restProps }) {
   const dispatch = useDispatch();
-  console.log('id IngredientItemClose ', id);
+
   const onRemoveItem = () => {
     console.log('remove click', id);
     dispatch({
@@ -142,7 +142,6 @@ Cart.Ing = function CartListIng({ children }: Props) {
   const ingredients = useSelector(({ ingredients }: any) => ingredients.items.ing)
   const { items } = useSelector(({ ingredients }: any) => ingredients)
   let ingredientsCount = [...Object.values(items)]
-  // console.log('Cart.Ing', ingredientsCount, ingredients);
   return (
       <>
       {

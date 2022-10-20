@@ -4,6 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## https://react-pizza-77.herokuapp.com/
 
-# Для запуска проекта необходимо выполнить следуюшие действия:
+# Для запуска проекта необходимо выполнить следующие действия:
 	1. Запустить фейк-сервер командой npm run json-server
 	2. Выполнить запуск проекта npm run start

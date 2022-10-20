@@ -1,7 +1,8 @@
 import { USER_INGRIDIENTS_FETCH_SUCCEEDED, USER_ING_ADD_TO_CART, USER_ING_REMOVE_CART_ITEM } from '../actions'
 import { getTotalSum } from '../../helpers/sum'
+import { InitialStateType } from './initStateType'
 
-const initState = {
+const initState: InitialStateType = {
   items: {},
   isFetching: false,
   totalPrice: 0,
@@ -9,7 +10,7 @@ const initState = {
   totalGram: 0
 }
 
-export const ingredients = (state = initState, action) => {
+export const ingredients = (state = initState, action: any): InitialStateType => {
   switch (action.type) {
     case USER_INGRIDIENTS_FETCH_SUCCEEDED: {
       return {
@@ -33,7 +34,7 @@ export const ingredients = (state = initState, action) => {
       const totalGram = getTotalSum(newItemsPizza, 'gram')
       
       return {
-        ...state.ingItems,
+        ...state.items,
         items: newItemsPizza,
         totalPrice,
         totalCal,

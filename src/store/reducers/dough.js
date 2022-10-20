@@ -1,15 +1,16 @@
 import { USER_DOUGH_FETCH_SUCCEEDED, USER_DOUGH_ADD_TO_CART } from '../actions'
 import { getTotalSum } from '../../helpers/sum'
+import { InitialStateType } from './initStateType'
 
-const initState = {
-  items: [],
+const initState: InitialStateType = {
+  items: {},
   isFetching: false,
   totalPrice: 0,
   totalCal: 0,
   totalGram: 0
 }
 
-export const dough = (state = initState, action) => {
+export const dough = (state = initState, action: any): InitialStateType => {
   switch (action.type) {
     case USER_DOUGH_FETCH_SUCCEEDED: {
       const dough = action.payload.dough
